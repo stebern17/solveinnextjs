@@ -320,7 +320,10 @@ export default function EndlessRunner() {
 
       {/* START BUTTON OVERLAY */}
       {!started && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-2xl">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 rounded-2xl">
+          <h5 className="text-white text-lg mb-4 font-zalando uppercase tracking-wide">
+            "Click To Jump"
+          </h5>
           <button
             type="button"
             onClick={startGame}
@@ -342,7 +345,7 @@ export default function EndlessRunner() {
               transition-transform duration-500 ease-out
             "
             />
-            <span className="relative z-10 font-semibold uppercase tracking-wide">
+            <span className="relative z-10 font-semibold uppercase tracking-wide cursor-pointer">
               Start Your Brand Journey
             </span>
           </button>

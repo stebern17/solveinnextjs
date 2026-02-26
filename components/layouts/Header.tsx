@@ -1,12 +1,14 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [showBackground, setShowBackground] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
-
+  const pathname = usePathname();
+  const isActive = (path: string) => pathname === path;
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -45,35 +47,54 @@ export default function Header() {
           </a>
         </h1>
         <nav>
-          <ul className="flex space-x-4 mt-2 text-base font-medium">
+          <ul className="flex space-x-6 mt-2 text-base font-medium">
             <li>
               <a
-                href="#"
-                className="text-(--header-muted) hover:text-[#ff6f00] transition-colors duration-300"
+                href="/"
+                className={`transition-colors duration-300 ${
+                  isActive("/")
+                    ? "text-[#ff6f00]"
+                    : "text-(--header-muted) hover:text-[#ff6f00]"
+                }`}
               >
                 Home
               </a>
             </li>
+
             <li>
               <a
-                href="#"
-                className="text-(--header-muted) hover:text-[#ff6f00] transition-colors duration-300"
+                href="/services"
+                className={`transition-colors duration-300 ${
+                  isActive("/services")
+                    ? "text-[#ff6f00]"
+                    : "text-(--header-muted) hover:text-[#ff6f00]"
+                }`}
               >
                 Services
               </a>
             </li>
+
             <li>
               <a
-                href="#"
-                className="text-(--header-muted) hover:text-[#ff6f00] transition-colors duration-300"
+                href="/about"
+                className={`transition-colors duration-300 ${
+                  isActive("/about")
+                    ? "text-[#ff6f00]"
+                    : "text-(--header-muted) hover:text-[#ff6f00]"
+                }`}
               >
                 About
               </a>
             </li>
+
             <li>
               <a
-                href="#"
-                className="text-(--header-muted) hover:text-[#ff6f00] transition-colors duration-300"
+                href="/contactUs"
+                className={`transition-colors duration-300 ${
+                  isActive("/contact")
+                    ? "text-[#ff6f00]"
+                    : "text-(--header-muted) hover:text-[#ff6f00]"
+                }`}
               >
                 Contact
               </a>

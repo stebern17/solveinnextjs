@@ -40,6 +40,12 @@ body {
   margin: 0 auto;
 }
 
+.container-hero {
+  width: 100%;
+  max-width: 1440px;
+  margin: 120px auto;
+}
+
 .font-zalando {
   font-family: var(--font-zalando);
 }

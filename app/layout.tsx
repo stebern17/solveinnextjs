@@ -29,7 +29,7 @@ export default function RootLayout({
         <Header />
         <IntroLoader />
         <Noise />
-        <main className="relative z-10">
+        <main className="relative z-10 min-h-screen">
           <SmoothScroll />
           {children}
         </main>
