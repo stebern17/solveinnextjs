@@ -1,7 +1,13 @@
+import HeroSection from "./heroSection";
+import Devider from "./components/devider";
+import CompanyGalery from "./companyGalery";
+
 export default function AboutPage() {
   return (
-    <div>
-      <h1>About Us</h1>
-    </div>
+    <>
+      <HeroSection />
+      <Devider />
+      <CompanyGalery />
+    </>
   );
 }
