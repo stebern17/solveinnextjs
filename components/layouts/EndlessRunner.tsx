@@ -314,14 +314,17 @@ export default function EndlessRunner() {
   }
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center">
+    <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center px-2 sm:px-0">
       {/* Canvas */}
-      <canvas ref={canvasRef} className="w-full rounded-2xl bg-background" />
+      <canvas
+        ref={canvasRef}
+        className="w-full h-[220px] sm:h-[320px] lg:h-[400px] rounded-2xl bg-background"
+      />
 
       {/* START BUTTON OVERLAY */}
       {!started && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 rounded-2xl">
-          <h5 className="text-white text-lg mb-4 font-zalando uppercase tracking-wide">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 rounded-2xl p-4 text-center overflow-auto">
+          <h5 className="text-white text-base sm:text-lg mb-4 font-zalando uppercase tracking-wide">
             "Click To Jump"
           </h5>
           <button
@@ -345,7 +348,7 @@ export default function EndlessRunner() {
               transition-transform duration-500 ease-out
             "
             />
-            <span className="relative z-10 font-semibold uppercase tracking-wide cursor-pointer">
+            <span className="relative z-10 font-semibold uppercase tracking-wide cursor-pointer text-sm sm:text-base">
               Start Your Brand Journey
             </span>
           </button>
@@ -354,19 +357,21 @@ export default function EndlessRunner() {
 
       {/* GAME OVER MODAL */}
       {gameOver && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-2xl p-4">
-          <div className="w-full max-w-md rounded-2xl border border-zinc-700 bg-background text-foreground shadow-xl p-8 text-center flex flex-col gap-4">
-            <h3 className="font-zalando text-2xl uppercase text-white">
+        <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-2xl p-4 overflow-auto">
+          <div className="w-full max-w-md rounded-2xl border border-zinc-700 bg-background text-foreground shadow-xl p-6 sm:p-8 text-center flex flex-col gap-4 max-h-[80vh] overflow-auto">
+            <h3 className="font-zalando text-xl sm:text-2xl uppercase text-white">
               Journey Paused
             </h3>
 
-            <p className="text-lg text-white">Your score: {finalScore}</p>
+            <p className="text-base sm:text-lg text-white">
+              Your score: {finalScore}
+            </p>
 
-            <h2 className="text-lg font-semibold text-white">
+            <h2 className="text-base sm:text-lg font-semibold text-white">
               Looks like the algorithm won this round.
             </h2>
 
-            <p className="text-sm text-white">
+            <p className="text-sm text-white leading-relaxed">
               Growing on social media takes strategy, speed, and the right
               moves. Ready to let Solvein handle it?
             </p>
@@ -393,7 +398,7 @@ export default function EndlessRunner() {
                   transition-transform duration-500 ease-out
                 "
                 />
-                <span className="relative z-10 font-semibold uppercase">
+                <span className="relative z-10 font-semibold uppercase text-sm sm:text-base">
                   Start Over
                 </span>
               </button>
@@ -418,7 +423,7 @@ export default function EndlessRunner() {
                   transition-transform duration-500 ease-out
                 "
                 />
-                <span className="relative z-10 font-semibold uppercase group-hover:text-white transition-colors duration-300">
+                <span className="relative z-10 font-semibold uppercase text-sm sm:text-base group-hover:text-white transition-colors duration-300">
                   Contact Us
                 </span>
               </a>

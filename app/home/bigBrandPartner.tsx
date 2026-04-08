@@ -1,6 +1,6 @@
 export default function BigBrandPartner() {
   return (
-    <section className="grid grid-cols-3 gap-4 container">
+    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 container">
       <div className="flex flex-col gap-2">
         <div className="overflow-hidden">
           <img
@@ -10,11 +10,11 @@ export default function BigBrandPartner() {
           />
         </div>
 
-        <h3 className="font-zalando uppercase text-2xl text-gray-800  transition-colors duration-500 font-bold tracking-wide">
+        <h3 className="font-zalando uppercase text-xl sm:text-2xl text-gray-800 transition-colors duration-500 font-bold tracking-wide">
           Fred Perry
         </h3>
 
-        <p className="text-justify font-extralight text-zinc-700  transition-colors duration-500">
+        <p className="text-justify text-sm sm:text-base font-extralight text-zinc-700 transition-colors duration-500">
           A legacy brand redefined for the modern audience. We strengthened its
           digital presence while preserving its iconic heritage and identity.
         </p>
@@ -27,10 +27,10 @@ export default function BigBrandPartner() {
             className="w-full aspect-square object-cover transition-transform duration-500 ease-out hover:scale-110"
           />
         </div>
-        <h3 className="font-zalando uppercase text-2xl text-gray-800  transition-colors duration-500 font-bold tracking-wide">
+        <h3 className="font-zalando uppercase text-xl sm:text-2xl text-gray-800 transition-colors duration-500 font-bold tracking-wide">
           Stone Island
         </h3>
-        <p className="text-justify font-extralight text-zinc-700  transition-colors duration-500">
+        <p className="text-justify text-sm sm:text-base font-extralight text-zinc-700 transition-colors duration-500">
           Innovation meets authenticity. We elevated the brand’s visual
           storytelling to reflect its bold character and forward-thinking
           spirit.
@@ -44,10 +44,10 @@ export default function BigBrandPartner() {
           muted
           className="w-full aspect-square object-cover"
         ></video>
-        <h3 className="font-zalando uppercase text-2xl text-gray-800 transition-colors duration-500 font-bold tracking-wide">
+        <h3 className="font-zalando uppercase text-xl sm:text-2xl text-gray-800 transition-colors duration-500 font-bold tracking-wide">
           Vans
         </h3>
-        <p className="text-justify font-extralight text-zinc-700 transition-colors duration-500">
+        <p className="text-justify text-sm sm:text-base font-extralight text-zinc-700 transition-colors duration-500">
           Driven by culture and creativity. We amplified the brand’s identity
           through immersive digital experiences that resonate with its
           community.

@@ -35,12 +35,12 @@ export default function ServiceSideBar({
 
   return (
     <aside className="w-full">
-      <h3 className="text-3xl font-bold mb-8 font-zalando uppercase">
+      <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 font-zalando uppercase">
         Services
       </h3>
 
       <motion.ul
-        className="font-zalando flex flex-col gap-3"
+        className="font-zalando lg:flex lg:flex-col grid grid-cols-2 items-stretch gap-3"
         variants={listVariants}
         initial="hidden"
         animate="show"
@@ -53,7 +53,7 @@ export default function ServiceSideBar({
               <motion.button
                 type="button"
                 onClick={() => onSelect(service.title)}
-                className={`w-full text-left rounded-full border px-6 py-3 text-base uppercase transition-colors duration-300 cursor-pointer ${
+                className={`h-full w-full text-left rounded-full border px-4 sm:px-6 py-3 text-xs sm:text-base uppercase transition-colors duration-300 cursor-pointer ${
                   isActive
                     ? "bg-black text-[#ff6f00] border-black"
                     : "bg-transparent text-black border-black/45 hover:bg-black hover:text-[#ff6f00]"

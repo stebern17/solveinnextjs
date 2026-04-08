@@ -5,6 +5,7 @@ import Devider from "../components/ui/Devider";
 import BigBrandPartner from "./home/bigBrandPartner";
 import SolveinServices from "./home/solveinServices";
 import GameSection from "./home/gameSection";
+import PartnerSection from "./home/partnerSection";
 import { CTASection } from "./home/CTASection";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Devider />
       <SolveinSection />
       <BigBrandPartner />
+      <PartnerSection />
       <SolveinServices />
       <GameSection />
       <CTASection />

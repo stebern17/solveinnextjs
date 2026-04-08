@@ -16,7 +16,7 @@ export default function HeroService({
 }: HeroServiceProps) {
   return (
     <section className="w-full">
-      <h1 className="font-zalando text-5xl md:text-6xl font-bold uppercase tracking-tight text-foreground mb-6">
+      <h1 className="font-zalando text-3xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight text-foreground mb-4 sm:mb-6">
         {title}
       </h1>
 
@@ -26,12 +26,12 @@ export default function HeroService({
           alt={title}
           width={1400}
           height={780}
-          className="w-full h-125 object-cover"
+          className="w-full h-64 sm:h-96 lg:h-125 object-cover"
           priority
         />
       </div>
 
-      <p className="mt-8 text-foreground/85 text-2xl leading-relaxed text-justify max-w-6xl">
+      <p className="mt-6 sm:mt-8 text-foreground/85 text-base sm:text-lg lg:text-2xl leading-relaxed text-justify max-w-6xl">
         {description}
       </p>
 
@@ -39,7 +39,7 @@ export default function HeroService({
         {features.map((feature, index) => (
           <li
             key={index}
-            className="text-foreground/85 text-xl font-light leading-relaxed"
+            className="text-foreground/85 text-sm sm:text-base lg:text-xl font-light leading-relaxed"
           >
             <HiCheckCircle className="inline-block text-foreground/85  mr-2" />
             {feature}
