@@ -2,7 +2,7 @@ import EmailForm from "../ui/EmailForm";
 
 export default function Footer() {
   return (
-    <footer className="h-[40vh] py-12 px-6 grid grid-cols-2 gap-8 text-sm text-white bg-[#27272a] relative z-10">
+    <footer className="min-h-[40vh] py-10 sm:py-12 px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm text-white bg-[#27272a] relative z-10 mt-6">
       <div className="flex flex-col justify-evenly gap-6">
         <h4 className="font-semibold text-xl font-zalando uppercase">
           Solvein Digital Agency
@@ -18,12 +18,12 @@ export default function Footer() {
           <EmailForm />
         </div>
       </div>
-      <div className="flex flex-col gap-10 items-start">
+      <div className="flex flex-col gap-8 sm:gap-10 items-start">
         <div className="flex flex-col gap-2">
           <h3 className="font-zalando text-xl">
             SOLVEIN is more than a Digital & Creative Agency.
           </h3>
-          <p className="text-lg text-justify font-extralight ">
+          <p className="text-base sm:text-lg text-justify font-extralight">
             We are a strategic thinking partner helping organizations move
             forward with clarity, precision, and measurable results. Ready to
             make the right decisions for your business? Contact us today to
@@ -33,7 +33,7 @@ export default function Footer() {
             </span>
           </p>
         </div>
-        <div className="flex justify-around gap-40">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-10 sm:gap-16">
           <div className="flex flex-col gap-6">
             <h6 className="flex gap-2 items-center text-base uppercase tracking-widest font-semibold">
               <span className="inline-block size-2 rounded-full bg-white" />

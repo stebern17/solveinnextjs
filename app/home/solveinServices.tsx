@@ -6,6 +6,7 @@ export default function SolveinServices() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const cursorRef = useRef<HTMLDivElement | null>(null);
   const headingRef = useRef<HTMLHeadingElement | null>(null);
+  const wRef = useRef<HTMLSpanElement | null>(null);
   const services = [
     {
       title: "Brand Strategy",
@@ -32,15 +33,19 @@ export default function SolveinServices() {
     const section = sectionRef.current;
     const cursor = cursorRef.current;
     const heading = headingRef.current;
-    if (!section || !cursor) return;
+    const w = wRef.current;
+    if (!section || !cursor || !w) return;
     const cursorSize = 48;
 
-    const setCursorToHeading = () => {
-      if (!heading) return;
+    const setInitialPosition = () => {
+      if (!section || !cursor || !w) return;
+
       const sectionRect = section.getBoundingClientRect();
-      const headingRect = heading.getBoundingClientRect();
-      const x = headingRect.left - sectionRect.left - cursorSize / 2 - 12;
-      const y = headingRect.top - sectionRect.top + headingRect.height / 2;
+      const wRect = w.getBoundingClientRect();
+
+      const x = wRect.left - sectionRect.left - cursorSize / 2;
+
+      const y = wRect.top - sectionRect.top + wRect.height / 2 - cursorSize / 2;
 
       cursor.style.opacity = "1";
       cursor.style.transition = "transform 500ms ease, opacity 300ms ease";
@@ -49,8 +54,8 @@ export default function SolveinServices() {
 
     const handleMove = (event: MouseEvent) => {
       const rect = section.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
+      const x = event.clientX - rect.left - cursorSize / 2;
+      const y = event.clientY - rect.top - cursorSize / 2;
 
       cursor.style.opacity = "1";
       cursor.style.transition = "transform 80ms linear, opacity 150ms ease";
@@ -58,18 +63,18 @@ export default function SolveinServices() {
     };
 
     const handleLeave = () => {
-      setCursorToHeading();
+      setInitialPosition();
     };
 
     const handleResize = () => {
-      setCursorToHeading();
+      setInitialPosition();
     };
 
     const handleScroll = () => {
-      setCursorToHeading();
+      setInitialPosition();
     };
 
-    setCursorToHeading();
+    setInitialPosition();
 
     section.addEventListener("mousemove", handleMove);
     section.addEventListener("mouseleave", handleLeave);
@@ -87,18 +92,27 @@ export default function SolveinServices() {
   return (
     <section
       ref={sectionRef}
-      className="container py-10 relative cursor-none dark:text-white"
+      className="container py-10 sm:py-14 relative cursor-none dark:text-white"
     >
       <div
         ref={cursorRef}
-        className="pointer-events-none absolute left-12 -top-2 z-20 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#ff6f00]/50 bg-[#ff6f00]/10 duration-500 ease-out"
+        className="hidden md:block pointer-events-none absolute left-0 top-0 z-20 h-12 w-12 rounded-full border border-[#ff6f00]/50 bg-[#ff6f00]/10 duration-500 ease-out"
       />
-      <h1
-        ref={headingRef}
-        className="text-3xl font-bold font-zalando uppercase mb-2 z-25 relative text-gray-800 transition-colors duration-500"
-      >
-        What Can We Do
-      </h1>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between md:gap-3 mb-4 md:mb-2">
+        <h1
+          ref={headingRef}
+          className="text-2xl sm:text-3xl font-bold font-zalando uppercase md:mb-2 z-25 relative text-gray-800 transition-colors duration-500 mt-6 "
+        >
+          <span ref={wRef}>W</span>hat Can We Do
+        </h1>
+        <a
+          href="/services"
+          className="text-[#ff6f00] hover:text-[#ff6f00]/60 transition-colors duration-300 cursor-none"
+        >
+          Learn More
+        </a>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
         {services.map((service, index) => (
           <div

@@ -2,7 +2,7 @@ import { SlArrowRight } from "react-icons/sl";
 
 export default function EmailForm() {
   return (
-    <div className="flex items-center gap-4 border-b border-white/40 pb-3 w-[80%]">
+    <div className="flex items-center gap-4 border-b border-white/40 pb-3 w-full max-w-md">
       <label htmlFor="footer-email" className="sr-only">
         Email address
       </label>
