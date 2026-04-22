@@ -1,8 +1,11 @@
+import { Suspense } from "react";
 import HeroSection from "./home/heroSection";
 import HeroVideo from "./home/heroVideo";
 import SolveinSection from "./home/solveinSection";
 import Devider from "../components/ui/Devider";
-import BigBrandPartner from "./home/bigBrandPartner";
+import BigBrandPartner, {
+  BigBrandPartnerSkeleton,
+} from "./home/bigBrandPartner";
 import SolveinServices from "./home/solveinServices";
 import GameSection from "./home/gameSection";
 import PartnerSection from "./home/partnerSection";
@@ -15,7 +18,9 @@ export default function Home() {
       <HeroSection />
       <Devider />
       <SolveinSection />
-      <BigBrandPartner />
+      <Suspense fallback={<BigBrandPartnerSkeleton />}>
+        <BigBrandPartner />
+      </Suspense>
       <PartnerSection />
       <SolveinServices />
       <GameSection />

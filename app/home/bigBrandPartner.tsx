@@ -1,58 +1,82 @@
-export default function BigBrandPartner() {
+import { getMainClient } from "@/services/mainClient";
+
+type MainClientItem = {
+  mediaUrl: string;
+  alt?: string | null;
+  desc?: string | null;
+  mime?: string | null;
+};
+
+export function BigBrandPartnerSkeleton() {
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 container">
-      <div className="flex flex-col gap-2">
-        <div className="overflow-hidden">
-          <img
-            src="/images/brandpartner1.jpg"
-            alt="Brand Partner 1"
-            className="w-full aspect-square object-cover transition-transform duration-500 ease-out hover:scale-110"
-          />
+      {Array.from({ length: 3 }).map((_, index) => (
+        <div key={index} className="flex flex-col gap-2">
+          <div className="overflow-hidden">
+            <div className="w-full aspect-square bg-gray-200 animate-pulse" />
+          </div>
+          <div className="h-6 w-2/3 bg-gray-200 animate-pulse" />
+          <div className="h-4 w-full bg-gray-200 animate-pulse" />
+          <div className="h-4 w-5/6 bg-gray-200 animate-pulse" />
         </div>
+      ))}
+    </section>
+  );
+}
 
-        <h3 className="font-zalando uppercase text-xl sm:text-2xl text-gray-800 transition-colors duration-500 font-bold tracking-wide">
-          Fred Perry
-        </h3>
+const isVideoAsset = (item: MainClientItem) => {
+  if (item.mime?.startsWith("video")) return true;
+  return item.mediaUrl.endsWith(".webm") || item.mediaUrl.endsWith(".mp4");
+};
 
-        <p className="text-justify text-sm sm:text-base font-extralight text-zinc-700 transition-colors duration-500">
-          A legacy brand redefined for the modern audience. We strengthened its
-          digital presence while preserving its iconic heritage and identity.
-        </p>
-      </div>
-      <div className="flex flex-col gap-2">
-        <div className="overflow-hidden">
-          <img
-            src="/images/brandpartner2.jpg"
-            alt="Brand Partner 2"
-            className="w-full aspect-square object-cover transition-transform duration-500 ease-out hover:scale-110"
-          />
-        </div>
-        <h3 className="font-zalando uppercase text-xl sm:text-2xl text-gray-800 transition-colors duration-500 font-bold tracking-wide">
-          Stone Island
-        </h3>
-        <p className="text-justify text-sm sm:text-base font-extralight text-zinc-700 transition-colors duration-500">
-          Innovation meets authenticity. We elevated the brand’s visual
-          storytelling to reflect its bold character and forward-thinking
-          spirit.
-        </p>
-      </div>
-      <div className="flex flex-col gap-2">
-        <video
-          src="/videos/brandpartner3.webm"
-          autoPlay
-          loop
-          muted
-          className="w-full aspect-square object-cover"
-        ></video>
-        <h3 className="font-zalando uppercase text-xl sm:text-2xl text-gray-800 transition-colors duration-500 font-bold tracking-wide">
-          Vans
-        </h3>
-        <p className="text-justify text-sm sm:text-base font-extralight text-zinc-700 transition-colors duration-500">
-          Driven by culture and creativity. We amplified the brand’s identity
-          through immersive digital experiences that resonate with its
-          community.
-        </p>
-      </div>
+export default async function BigBrandPartner() {
+  const data = await getMainClient();
+  const clients = (data?.clients || []).filter(
+    (item: MainClientItem) => item.mediaUrl,
+  );
+
+  if (!clients.length) return null;
+
+  return (
+    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 container">
+      {clients.map((client, index) => {
+        const title = client.alt || `Client ${index + 1}`;
+        const isVideo = isVideoAsset(client);
+
+        return (
+          <div key={client.mediaUrl} className="flex flex-col gap-2">
+            <div className="overflow-hidden">
+              {isVideo ? (
+                <video
+                  src={client.mediaUrl}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full aspect-square object-cover"
+                  aria-label={title}
+                />
+              ) : (
+                <img
+                  src={client.mediaUrl}
+                  alt={title}
+                  className="w-full aspect-square object-cover transition-transform duration-500 ease-out hover:scale-110"
+                />
+              )}
+            </div>
+
+            <h3 className="font-zalando uppercase text-xl sm:text-2xl text-gray-800 transition-colors duration-500 font-bold tracking-wide">
+              {title}
+            </h3>
+
+            {client.desc ? (
+              <p className="text-justify text-sm sm:text-base font-extralight text-zinc-700 transition-colors duration-500">
+                {client.desc}
+              </p>
+            ) : null}
+          </div>
+        );
+      })}
     </section>
   );
 }

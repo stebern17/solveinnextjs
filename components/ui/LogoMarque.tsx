@@ -1,24 +1,53 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import { motion, useAnimationControls } from "framer-motion";
+import { getClients } from "@/services/client";
+import { baseURL } from "@/lib/api";
 
-const logos = {
-  "images/logo/dummyBrand/logo1.png": "Brand 1",
-  "images/logo/dummyBrand/logo2.png": "Brand 2",
-  "images/logo/dummyBrand/logo3.png": "Brand 3",
-  "images/logo/dummyBrand/logo4.png": "Brand 4",
-  "images/logo/dummyBrand/logo5.png": "Brand 5",
-  "images/logo/dummyBrand/logo6.png": "Brand 6",
-  "images/logo/dummyBrand/logo7.png": "Brand 7",
-  "images/logo/dummyBrand/logo8.png": "Brand 8",
+type ClientLogo = {
+  name: string;
+  logo?: string | null;
 };
 
 export default function LogoMarquee() {
-  const logoEntries = Object.entries(logos);
+  const [clients, setClients] = useState<ClientLogo[]>([]);
   const trackRef = useRef<HTMLDivElement>(null);
   const controls = useAnimationControls();
   const [trackWidth, setTrackWidth] = useState(0);
+
+  const resolveLogoUrl = useCallback((logo?: string | null) => {
+    if (!logo) return "";
+    if (logo.startsWith("http")) return logo;
+    return `${baseURL}${logo}`;
+  }, []);
+
+  const logoEntries = clients
+    .map((client) => ({
+      src: resolveLogoUrl(client.logo),
+      alt: client.name,
+    }))
+    .filter((entry) => entry.src);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadClients = async () => {
+      try {
+        const data = await getClients();
+        if (!isMounted) return;
+        setClients(data || []);
+      } catch (error) {
+        console.error("Failed to load clients", error);
+      }
+    };
+
+    loadClients();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   useEffect(() => {
     if (!trackRef.current) return;
@@ -27,7 +56,7 @@ export default function LogoMarquee() {
     const fullWidth = trackRef.current.scrollWidth;
     const singleSetWidth = fullWidth / 2;
     setTrackWidth(singleSetWidth);
-  }, []);
+  }, [logoEntries.length]);
 
   useEffect(() => {
     if (trackWidth === 0) return;
@@ -45,12 +74,24 @@ export default function LogoMarquee() {
     });
   }, [trackWidth, controls]);
 
+  const handleImageLoad = useCallback(() => {
+    if (!trackRef.current) return;
+    const fullWidth = trackRef.current.scrollWidth;
+    const singleSetWidth = fullWidth / 2;
+    setTrackWidth(singleSetWidth);
+  }, []);
+
   return (
     <div className="w-full overflow-hidden py-10 marquee-fade">
       <motion.div ref={trackRef} className="flex w-max" animate={controls}>
-        {[...logoEntries, ...logoEntries].map(([src, alt], index) => (
+        {[...logoEntries, ...logoEntries].map(({ src, alt }, index) => (
           <div key={index} className="flex-shrink-0 px-8">
-            <img src={src} alt={alt} className="h-16 object-contain" />
+            <img
+              src={src}
+              alt={alt}
+              className="h-16 object-contain"
+              onLoad={handleImageLoad}
+            />
           </div>
         ))}
       </motion.div>
