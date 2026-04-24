@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-  const [showBackground, setShowBackground] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -39,10 +38,8 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const isScrollingUp = currentScrollY < lastScrollY.current;
-      const shouldShowBackground = currentScrollY > 50;
       const shouldShowHeader = currentScrollY <= 0 || isScrollingUp;
 
-      setShowBackground(shouldShowBackground);
       setIsVisible(shouldShowHeader);
       lastScrollY.current = currentScrollY;
     };
@@ -67,13 +64,9 @@ export default function Header() {
         opacity: headerVisible ? 1 : 0,
       }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`left-0 top-0 w-full z-50 p-4 sm:p-6 flex items-center text-lg text-(--header-foreground) uppercase transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-out${" fixed"} ${
+      className={`left-0 top-0 w-full z-50 p-4 sm:p-6 flex items-center text-lg text-(--header-foreground) uppercase transition-[box-shadow,backdrop-filter] duration-300 ease-out${" fixed"} ${
         headerVisible ? "pointer-events-auto" : "pointer-events-none"
-      }${
-        showBackground || isMenuOpen
-          ? " bg-[rgb(var(--background-rgb)/0.9)] shadow-[0_1px_0_rgba(37,52,63,0.06)] backdrop-blur-sm"
-          : " bg-[rgb(var(--background-rgb)/0.9)] shadow-[0_1px_0_rgba(37,52,63,0.06)] backdrop-blur-sm"
-      }`}
+      } bg-[rgb(var(--background-rgb)/0.9)] shadow-[0_1px_0_rgba(37,52,63,0.06)] backdrop-blur-sm`}
     >
       <div className="container mx-auto flex w-full flex-col lg:flex-row items-center justify-between h-full">
         <div className="flex w-full lg:w-auto items-center justify-between min-h-10">
