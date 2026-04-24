@@ -12,7 +12,9 @@ export function CTASection() {
           strategic thinking partner — helping your organization move forward
           with precision, direction, and measurable impact.
         </p>
-        <SecondaryButton className="self-start">Contact Us</SecondaryButton>
+        <SecondaryButton className="self-start" href="/contactUs">
+          Contact Us
+        </SecondaryButton>
       </div>
     </section>
   );

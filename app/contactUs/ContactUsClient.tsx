@@ -178,6 +178,7 @@ export default function ContactUsClient() {
                 type="text"
                 placeholder="Your Name"
                 required
+                suppressHydrationWarning
                 className="bg-transparent border border-(--foreground)/20 rounded-lg px-4 py-3 text-sm placeholder:opacity-30 focus:outline-none focus:border-[#ff6f00] focus:ring-1 focus:ring-[#ff6f00] transition-all duration-200"
               />
             </div>
@@ -194,6 +195,7 @@ export default function ContactUsClient() {
                 type="email"
                 placeholder="your@email.com"
                 required
+                suppressHydrationWarning
                 className="bg-transparent border border-(--foreground)/20 rounded-lg px-4 py-3 text-sm placeholder:opacity-30 focus:outline-none focus:border-[#ff6f00] focus:ring-1 focus:ring-[#ff6f00] transition-all duration-200"
               />
             </div>
@@ -212,6 +214,7 @@ export default function ContactUsClient() {
               type="text"
               placeholder="What can we help you with?"
               required
+              suppressHydrationWarning
               className="bg-transparent border border-(--foreground)/20 rounded-lg px-4 py-3 text-sm placeholder:opacity-30 focus:outline-none focus:border-[#ff6f00] focus:ring-1 focus:ring-[#ff6f00] transition-all duration-200"
             />
           </div>
@@ -229,6 +232,7 @@ export default function ContactUsClient() {
               placeholder="Tell us about your challenge..."
               rows={5}
               required
+              suppressHydrationWarning
               className="bg-transparent border border-(--foreground)/20 rounded-lg px-4 py-3 text-sm placeholder:opacity-30 focus:outline-none focus:border-[#ff6f00] focus:ring-1 focus:ring-[#ff6f00] transition-all duration-200 resize-none"
             />
           </div>
@@ -254,6 +258,7 @@ export default function ContactUsClient() {
           <button
             type="submit"
             disabled={status === "submitting"}
+            suppressHydrationWarning
             className="group relative overflow-hidden bg-[#ff6f00] text-white rounded-lg py-3.5 font-semibold uppercase cursor-pointer tracking-widest text-sm font-zalando transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,111,0,0.4)]"
           >
             <span className="relative z-10">

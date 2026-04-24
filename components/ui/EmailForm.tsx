@@ -11,11 +11,13 @@ export default function EmailForm() {
         id="footer-email"
         className="w-full bg-transparent text-white/90 placeholder:text-white/50 outline-none"
         placeholder="Email Address"
+        suppressHydrationWarning
       />
       <button
         type="button"
         aria-label="Submit email"
         className="text-white/90 transition hover:text-white"
+        suppressHydrationWarning
       >
         <SlArrowRight className="size-4 hover:scale-120 cursor-pointer transition-transform duration-300" />
       </button>
