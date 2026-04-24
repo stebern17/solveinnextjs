@@ -7,6 +7,7 @@ export default function Header() {
   const [showBackground, setShowBackground] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
   const isActive = (path: string) => pathname === path;
@@ -24,6 +25,16 @@ export default function Header() {
     closed: { opacity: 0, y: -6 },
     open: { opacity: 1, y: 0 },
   };
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1023px)");
+    const handleBreakpoint = () => setIsMobile(mediaQuery.matches);
+
+    handleBreakpoint();
+    mediaQuery.addEventListener("change", handleBreakpoint);
+
+    return () => mediaQuery.removeEventListener("change", handleBreakpoint);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -45,15 +56,20 @@ export default function Header() {
     setIsMenuOpen(false);
   }, [pathname]);
 
+  const keepHeaderVisible = isMobile || isMenuOpen;
+  const headerVisible = keepHeaderVisible || isVisible;
+
   return (
     <motion.header
       initial={{ y: -90, opacity: 0 }}
       animate={{
-        y: isVisible ? 0 : -110,
-        opacity: isVisible ? 1 : 0,
+        y: headerVisible ? 0 : -110,
+        opacity: headerVisible ? 1 : 0,
       }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`left-0 top-0 w-full z-50 min-h-[10vh] p-4 sm:p-6 flex items-center text-lg text-(--header-foreground) uppercase transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-out${" fixed"}${
+      className={`left-0 top-0 w-full z-50 min-h-[10vh] p-4 sm:p-6 flex items-center text-lg text-(--header-foreground) uppercase transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-out${" fixed"} ${
+        headerVisible ? "pointer-events-auto" : "pointer-events-none"
+      }${
         showBackground || isMenuOpen
           ? " bg-[rgb(var(--background-rgb)/0.92)] shadow-[0_1px_0_rgba(37,52,63,0.06)] backdrop-blur-sm"
           : " bg-transparent"
