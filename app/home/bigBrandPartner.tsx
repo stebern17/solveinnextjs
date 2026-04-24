@@ -1,4 +1,5 @@
 import { getMainClient } from "@/services/mainClient";
+import BigBrandPartnerCard from "./BigBrandPartnerCard";
 
 type MainClientItem = {
   mediaUrl: string;
@@ -40,41 +41,15 @@ export default async function BigBrandPartner() {
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 container">
       {clients.map((client, index) => {
-        const title = client.alt || `Client ${index + 1}`;
         const isVideo = isVideoAsset(client);
 
         return (
-          <div key={client.mediaUrl} className="flex flex-col gap-2">
-            <div className="overflow-hidden">
-              {isVideo ? (
-                <video
-                  src={client.mediaUrl}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full aspect-square object-cover"
-                  aria-label={title}
-                />
-              ) : (
-                <img
-                  src={client.mediaUrl}
-                  alt={title}
-                  className="w-full aspect-square object-cover transition-transform duration-500 ease-out hover:scale-110"
-                />
-              )}
-            </div>
-
-            <h3 className="font-zalando uppercase text-xl sm:text-2xl text-gray-800 transition-colors duration-500 font-bold tracking-wide">
-              {title}
-            </h3>
-
-            {client.desc ? (
-              <p className="text-justify text-sm sm:text-base font-extralight text-zinc-700 transition-colors duration-500">
-                {client.desc}
-              </p>
-            ) : null}
-          </div>
+          <BigBrandPartnerCard
+            key={client.mediaUrl}
+            client={client}
+            index={index}
+            isVideo={isVideo}
+          />
         );
       })}
     </section>
