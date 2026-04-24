@@ -8,12 +8,18 @@ export const metadata: Metadata = {
   description:
     "Explore Solvein services: brand strategy, digital marketing, creative design, and web development for modern businesses.",
   keywords: [
-    "Solvein services",
-    "brand strategy",
-    "digital marketing",
-    "creative design",
-    "web development",
-    "SEO",
+    "Solvein",
+    "digital agency Indonesia",
+    "digital marketing agency Indonesia",
+    "jasa digital marketing",
+    "digital agency Jogja",
+    "digital agency Jakarta",
+    "konsultan digital marketing",
+    "marketing consultant Indonesia",
+    "social media management agency",
+    "jasa branding perusahaan",
+    "jasa pembuatan website profesional",
+    "jasa branding UMKM",
   ],
   alternates: {
     canonical: `${siteUrl}/services`,
@@ -21,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Solvein Services",
     description:
-      "Brand strategy, digital marketing, creative design, and web development tailored to your business goals.",
+      "Jasa digital agency Indonesia dengan layanan strategi, branding, website, hingga digital marketing terintegrasi untuk membantu bisnis Anda berkembang.",
     url: `${siteUrl}/services`,
     images: ["/images/logo/og_image.png"],
     type: "website",
@@ -30,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Solvein Services",
     description:
-      "Brand strategy, digital marketing, creative design, and web development tailored to your business goals.",
+      "Jasa digital agency Indonesia dengan layanan strategi, branding, website, hingga digital marketing terintegrasi untuk membantu bisnis Anda berkembang.",
     images: ["/images/logo/og_image.png"],
   },
 };

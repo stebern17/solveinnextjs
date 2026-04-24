@@ -16,38 +16,45 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://solvein.id"),
 
   title: {
-    default: "Solvein Digital Agency",
-    template: "%s | Solvein Digital Agency",
+    default: "Solvein Brand Architecture Agency",
+    template: "%s | Solvein Brand Architecture Agency",
   },
 
   description:
-    "Solve What Matters. We are a digital agency that helps businesses solve their problems with innovative solutions.",
+    "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil yang terukur.",
 
   keywords: [
-    "digital agency",
-    "web development",
-    "UI UX design",
-    "branding",
     "Solvein",
+    "digital agency Indonesia",
+    "digital marketing agency Indonesia",
+    "jasa digital marketing",
+    "digital agency Jogja",
+    "digital agency Jakarta",
+    "konsultan digital marketing",
+    "marketing consultant Indonesia",
+    "social media management agency",
+    "jasa branding perusahaan",
+    "jasa pembuatan website profesional",
+    "jasa branding UMKM",
   ],
 
   authors: [{ name: "Solvein Team" }],
   creator: "Solvein",
-  applicationName: "Solvein Digital Agency",
+  applicationName: "Solvein Brand Architecture Agency",
   referrer: "origin-when-cross-origin",
 
   openGraph: {
-    title: "Solvein Digital Agency",
+    title: "Solvein Brand Architecture Agency",
     description:
-      "Solve What Matters. We are a digital agency that helps businesses solve their problems.",
+      "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil yang terukur.",
     url: "https://solvein.id",
-    siteName: "Solvein Digital Agency",
+    siteName: "Solvein Brand Architecture Agency",
     images: [
       {
         url: "/images/logo/og_image.png",
         width: 1200,
         height: 342,
-        alt: "Solvein Digital Agency",
+        alt: "Solvein Brand Architecture Agency",
       },
     ],
     locale: "id_ID",
@@ -69,9 +76,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Solvein Digital Agency",
+    title: "Solvein Brand Architecture Agency",
     description:
-      "Solve What Matters. We are a digital agency that helps businesses solve their problems.",
+      "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil yang terukur.",
     images: ["/images/logo/og_image.png"],
   },
 
@@ -91,7 +98,7 @@ export const metadata: Metadata = {
     shortcut: ["/favicon.ico"],
   },
 
-  category: "Digital Marketing Agency",
+  category: "Brand Architecture Agency",
 };
 
 export default function RootLayout({

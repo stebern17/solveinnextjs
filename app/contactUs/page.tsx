@@ -6,14 +6,20 @@ const siteUrl = "https://solvein.id";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Solvein to discuss brand strategy, digital marketing, creative design, and web development solutions.",
+    "Hubungi Solvein, digital agency Indonesia, untuk konsultasi strategi, branding, dan digital marketing guna mendukung pertumbuhan bisnis Anda.",
   keywords: [
-    "contact Solvein",
-    "digital agency contact",
-    "brand strategy",
-    "digital marketing",
-    "web development",
-    "creative design",
+    "Solvein",
+    "digital agency Indonesia",
+    "digital marketing agency Indonesia",
+    "jasa digital marketing",
+    "digital agency Jogja",
+    "digital agency Jakarta",
+    "konsultan digital marketing",
+    "marketing consultant Indonesia",
+    "social media management agency",
+    "jasa branding perusahaan",
+    "jasa pembuatan website profesional",
+    "jasa branding UMKM",
   ],
   alternates: {
     canonical: `${siteUrl}/contactUs`,
@@ -21,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Solvein",
     description:
-      "Get in touch with Solvein to solve your brand, marketing, design, or web challenges.",
+      "Hubungi Solvein, digital agency Indonesia, untuk konsultasi strategi, branding, dan digital marketing guna mendukung pertumbuhan bisnis Anda.",
     url: `${siteUrl}/contactUs`,
     images: ["/images/logo/og_image.png"],
     type: "website",
@@ -30,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Solvein",
     description:
-      "Get in touch with Solvein to solve your brand, marketing, design, or web challenges.",
+      "Hubungi Solvein, digital agency Indonesia, untuk konsultasi strategi, branding, dan digital marketing guna mendukung pertumbuhan bisnis Anda.",
     images: ["/images/logo/og_image.png"],
   },
 };

@@ -9,13 +9,20 @@ const siteUrl = "https://solvein.id";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Solvein, our mission, and how we help brands solve what matters through strategy and design.",
+    "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil terukur.",
   keywords: [
-    "about Solvein",
-    "digital agency",
-    "brand strategy",
-    "creative design",
-    "team",
+    "Solvein",
+    "digital agency Indonesia",
+    "digital marketing agency Indonesia",
+    "jasa digital marketing",
+    "digital agency Jogja",
+    "digital agency Jakarta",
+    "konsultan digital marketing",
+    "marketing consultant Indonesia",
+    "social media management agency",
+    "jasa branding perusahaan",
+    "jasa pembuatan website profesional",
+    "jasa branding UMKM",
   ],
   alternates: {
     canonical: `${siteUrl}/about`,
@@ -23,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Solvein",
     description:
-      "Meet Solvein and our mission to solve what matters with strategy, design, and digital expertise.",
+      "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil terukur.",
     url: `${siteUrl}/about`,
     images: ["/images/logo/og_image.png"],
     type: "website",
@@ -32,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Solvein",
     description:
-      "Meet Solvein and our mission to solve what matters with strategy, design, and digital expertise.",
+      "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil terukur.",
     images: ["/images/logo/og_image.png"],
   },
 };
