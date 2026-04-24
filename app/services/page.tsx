@@ -6,7 +6,7 @@ const siteUrl = "https://solvein.id";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore Solvein services: brand strategy, digital marketing, creative design, and web development for modern businesses.",
+    "Jasa digital agency Indonesia dengan layanan strategi, branding, website, hingga digital marketing terintegrasi untuk membantu bisnis Anda berkembang.",
   keywords: [
     "Solvein",
     "digital agency Indonesia",
