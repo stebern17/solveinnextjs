@@ -12,7 +12,9 @@ export default function HeroSection() {
           with innovative solutions. From web development to digital marketing,
           we have the expertise to take your business to the next level.
         </p>
-        <PrimaryButton>Discover Our Services</PrimaryButton>
+        <PrimaryButton href="/services" withIntroLoader>
+          Discover Our Services
+        </PrimaryButton>
       </div>
       <div>
         <img
