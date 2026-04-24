@@ -7,59 +7,27 @@ import ServiceSideBar from "./serviceSideBar";
 
 const servicesData = [
   {
-    title: "Brand Strategy",
+    title: "Social Media Management",
     image: "/images/hero_image.jpg",
     description:
-      "We help businesses define who they are and why they matter through strategic clarity and compelling narratives.",
+      "Social media management services to help brands build a consistent and impactful digital presence, from content strategy to account management, along with digital campaign integration and performance optimization.",
     features: [
-      "Brand Audit & Market Research",
-      "Brand Positioning & Value Proposition",
-      "Brand Messaging Framework",
-      "Brand Architecture Planning",
-      "Competitive Landscape Analysis",
-      "Long-Term Brand Growth Roadmap",
+      "Increase brand awareness and visibility",
+      "Build consistent engagement with the audience",
+      "Strengthen brand positioning in the digital space",
+      "Drive traffic and conversions through content",
     ],
   },
   {
-    title: "Digital Marketing",
+    title: "Website",
     image: "/images/hero_image.jpg",
     description:
-      "Data-driven strategies designed to increase visibility, engagement, and measurable business growth.",
+      "Professional website development and management services designed to strengthen brand credibility, support business objectives, and optimize user experience.",
     features: [
-      "Social Media Strategy & Management",
-      "Performance Advertising Campaigns",
-      "Search Engine Optimization (SEO)",
-      "Content Marketing Strategy",
-      "Campaign Analytics & Optimization",
-      "Lead Generation Funnel Optimization",
-    ],
-  },
-  {
-    title: "Creative Design",
-    image: "/images/hero_image.jpg",
-    description:
-      "Transforming strategic ideas into visually compelling brand experiences that resonate and inspire.",
-    features: [
-      "Brand Identity & Visual System",
-      "Marketing Collateral Design",
-      "Campaign Creative Development",
-      "UI/UX Interface Design",
-      "Creative Direction & Art Supervision",
-      "Visual Content Production Planning",
-    ],
-  },
-  {
-    title: "Web Development",
-    image: "/images/hero_image.jpg",
-    description:
-      "Building seamless, high-performance digital platforms that strengthen brand presence and user experience.",
-    features: [
-      "Corporate Website Development",
-      "Landing Page Development",
-      "E-Commerce Platform Development",
-      "CMS Integration",
-      "Website Optimization & Maintenance",
-      "Technical SEO Implementation",
+      "Enhance brand credibility and trust",
+      "Optimize user experience (UX)",
+      "Increase conversion rates",
+      "Support business digital needs",
     ],
   },
 ];

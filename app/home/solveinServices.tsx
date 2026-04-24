@@ -9,24 +9,14 @@ export default function SolveinServices() {
   const wRef = useRef<HTMLSpanElement | null>(null);
   const services = [
     {
-      title: "Brand Strategy",
+      title: "Social Media Management",
       description:
-        "Crafting compelling brand narratives that resonate with your audience and drive engagement.",
+        "Social media management services to help brands build a consistent and impactful digital presence, from content strategy to account management, along with digital campaign integration and performance optimization.",
     },
     {
-      title: "Digital Marketing",
+      title: "Website",
       description:
-        "Creating data-driven campaigns that amplify your brand’s reach and impact across digital channels.",
-    },
-    {
-      title: "Creative Design",
-      description:
-        "Designing visually stunning and cohesive brand identities that captivate and inspire.",
-    },
-    {
-      title: "Web Development",
-      description:
-        "Building seamless, user-friendly websites that embody your brand’s essence and enhance user experience.",
+        "Professional website development and management services designed to strengthen brand credibility, support business objectives, and optimize user experience.",
     },
   ];
   useEffect(() => {
