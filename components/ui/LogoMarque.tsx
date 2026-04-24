@@ -12,9 +12,11 @@ type ClientLogo = {
 
 export default function LogoMarquee() {
   const [clients, setClients] = useState<ClientLogo[]>([]);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const singleSetRef = useRef<HTMLDivElement>(null);
   const controls = useAnimationControls();
-  const [trackWidth, setTrackWidth] = useState(0);
+  const [singleSetWidth, setSingleSetWidth] = useState(0);
+  const [repeatCount, setRepeatCount] = useState(2);
 
   const resolveLogoUrl = useCallback((logo?: string | null) => {
     if (!logo) return "";
@@ -49,20 +51,49 @@ export default function LogoMarquee() {
     };
   }, []);
 
-  useEffect(() => {
-    if (!trackRef.current) return;
+  const measureTrack = useCallback(() => {
+    if (!viewportRef.current || !singleSetRef.current) return;
 
-    // Ukur lebar SATU set logo saja (bukan keduanya)
-    const fullWidth = trackRef.current.scrollWidth;
-    const singleSetWidth = fullWidth / 2;
-    setTrackWidth(singleSetWidth);
-  }, [logoEntries.length]);
+    const viewportWidth = viewportRef.current.offsetWidth;
+    const measuredSingleSetWidth = singleSetRef.current.scrollWidth;
+
+    if (viewportWidth <= 0 || measuredSingleSetWidth <= 0) return;
+
+    setSingleSetWidth(measuredSingleSetWidth);
+
+    // Ensure total track width always covers viewport while shifting by one full set.
+    const minRepeats = Math.max(
+      2,
+      Math.ceil(
+        (viewportWidth + measuredSingleSetWidth) / measuredSingleSetWidth,
+      ),
+    );
+    setRepeatCount(minRepeats);
+  }, []);
 
   useEffect(() => {
-    if (trackWidth === 0) return;
+    if (logoEntries.length === 0) {
+      controls.stop();
+      return;
+    }
+
+    measureTrack();
+
+    const observer = new ResizeObserver(() => {
+      measureTrack();
+    });
+
+    if (viewportRef.current) observer.observe(viewportRef.current);
+    if (singleSetRef.current) observer.observe(singleSetRef.current);
+
+    return () => observer.disconnect();
+  }, [logoEntries.length, controls, measureTrack]);
+
+  useEffect(() => {
+    if (singleSetWidth === 0) return;
 
     controls.start({
-      x: [0, -trackWidth],
+      x: [0, -singleSetWidth],
       transition: {
         x: {
           repeat: Infinity,
@@ -72,26 +103,42 @@ export default function LogoMarquee() {
         },
       },
     });
-  }, [trackWidth, controls]);
+  }, [singleSetWidth, controls]);
 
   const handleImageLoad = useCallback(() => {
-    if (!trackRef.current) return;
-    const fullWidth = trackRef.current.scrollWidth;
-    const singleSetWidth = fullWidth / 2;
-    setTrackWidth(singleSetWidth);
-  }, []);
+    measureTrack();
+  }, [measureTrack]);
+
+  const repeatedSets = Array.from(
+    { length: repeatCount },
+    (_, setIndex) => setIndex,
+  );
 
   return (
-    <div className="w-full overflow-hidden py-10 marquee-fade">
-      <motion.div ref={trackRef} className="flex w-max" animate={controls}>
-        {[...logoEntries, ...logoEntries].map(({ src, alt }, index) => (
-          <div key={index} className="flex-shrink-0 px-8">
-            <img
-              src={src}
-              alt={alt}
-              className="h-16 object-contain"
-              onLoad={handleImageLoad}
-            />
+    <div
+      ref={viewportRef}
+      className="w-full overflow-hidden py-10 marquee-fade"
+    >
+      <motion.div className="flex w-max" animate={controls}>
+        {repeatedSets.map((setIndex) => (
+          <div
+            key={setIndex}
+            ref={setIndex === 0 ? singleSetRef : undefined}
+            className="flex"
+          >
+            {logoEntries.map(({ src, alt }, logoIndex) => (
+              <div
+                key={`${setIndex}-${logoIndex}-${src}`}
+                className="flex-shrink-0 px-8"
+              >
+                <img
+                  src={src}
+                  alt={alt}
+                  className="h-16 object-contain"
+                  onLoad={handleImageLoad}
+                />
+              </div>
+            ))}
           </div>
         ))}
       </motion.div>
