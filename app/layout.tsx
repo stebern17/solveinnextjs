@@ -13,9 +13,85 @@ const DmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Solvein Digital Agency",
+  metadataBase: new URL("https://solvein.id"),
+
+  title: {
+    default: "Solvein Digital Agency",
+    template: "%s | Solvein Digital Agency",
+  },
+
   description:
     "Solve What Matters. We are a digital agency that helps businesses solve their problems with innovative solutions.",
+
+  keywords: [
+    "digital agency",
+    "web development",
+    "UI UX design",
+    "branding",
+    "Solvein",
+  ],
+
+  authors: [{ name: "Solvein Team" }],
+  creator: "Solvein",
+  applicationName: "Solvein Digital Agency",
+  referrer: "origin-when-cross-origin",
+
+  openGraph: {
+    title: "Solvein Digital Agency",
+    description:
+      "Solve What Matters. We are a digital agency that helps businesses solve their problems.",
+    url: "https://solvein.id",
+    siteName: "Solvein Digital Agency",
+    images: [
+      {
+        url: "/images/logo/og_image.png",
+        width: 1200,
+        height: 342,
+        alt: "Solvein Digital Agency",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
+
+  manifest: "/site.webmanifest",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Solvein Digital Agency",
+    description:
+      "Solve What Matters. We are a digital agency that helps businesses solve their problems.",
+    images: ["/images/logo/og_image.png"],
+  },
+
+  alternates: {
+    canonical: "https://solvein.id",
+  },
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/favicon.ico"],
+  },
+
+  category: "Digital Marketing Agency",
 };
 
 export default function RootLayout({
