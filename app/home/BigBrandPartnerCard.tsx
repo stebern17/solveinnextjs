@@ -53,7 +53,7 @@ export default function BigBrandPartnerCard({
             alt={title}
             onLoad={() => setIsMediaLoaded(true)}
             onError={() => setIsMediaLoaded(true)}
-            className={`w-full aspect-square object-cover transition-[transform,opacity] duration-500 ease-out ${
+            className={`w-full aspect-square object-cover transition-all duration-500 ease-out ${
               isMediaLoaded ? "opacity-100" : "opacity-0"
             } hover:scale-110`}
           />
