@@ -18,6 +18,46 @@ export default function SolveinServices() {
       description:
         "Professional website development and management services designed to strengthen brand credibility, support business objectives, and optimize user experience.",
     },
+    {
+      title: "Business & Marketing Consulting",
+      description:
+        "Business and digital marketing consulting services to help brands gain strategic clarity, develop data-driven digital strategies, and build measurable growth frameworks.",
+    },
+    {
+      title: "Branding",
+      description:
+        "Branding services to build a strong brand identity, from brand foundations to visual systems and consistent communication strategies.",
+    },
+    {
+      title: "Photo & Video Production",
+      description:
+        "Professional photo and video production services, from concept development to execution, to support brand communication needs.",
+    },
+    {
+      title: "Product & Print Design",
+      description:
+        "Product and print design services to support brand visual needs, from design development to mockups and presentation materials.",
+    },
+    {
+      title: "Paid Ads",
+      description:
+        "Data-driven digital advertising services to help brands reach the right audience through strategy, execution, and campaign optimization.",
+    },
+    {
+      title: "Media Placement",
+      description:
+        "Media placement services to expand brand exposure through strategic channel selection and cross-media content distribution.",
+    },
+    {
+      title: "Influencer & Community",
+      description:
+        "Influencer and community services to help brands build strategic collaborations with KOLs, KOCs, and relevant communities to expand reach and strengthen meaningful audience connections.",
+    },
+    {
+      title: "Integrated Activation",
+      description:
+        "Integrated activation services to unify multiple marketing channels into a cohesive and strategic approach.",
+    },
   ];
   useEffect(() => {
     const section = sectionRef.current;

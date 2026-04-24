@@ -16,7 +16,7 @@ export default function HeroService({
 }: HeroServiceProps) {
   return (
     <section className="w-full">
-      <h1 className="font-zalando text-3xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight text-foreground mb-4 sm:mb-6">
+      <h1 className="font-zalando text-2xl sm:text-3xl 2xl:text-5xl font-bold uppercase tracking-tight text-foreground mb-4 sm:mb-6">
         {title}
       </h1>
 
@@ -31,7 +31,7 @@ export default function HeroService({
         />
       </div>
 
-      <p className="mt-6 sm:mt-8 text-foreground/85 text-base sm:text-lg lg:text-2xl leading-relaxed text-justify max-w-6xl">
+      <p className="mt-6 sm:mt-8 text-foreground/85 text-base sm:text-lg lg:text-xl leading-relaxed text-justify max-w-6xl">
         {description}
       </p>
 
