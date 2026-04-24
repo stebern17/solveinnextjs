@@ -50,7 +50,7 @@ body {
 .container-hero {
   width: 100%;
   max-width: 1440px;
-  margin: 96px auto 80px;
+  margin: 100px auto 80px;
   padding: 0 24px;
 }
 
@@ -60,7 +60,7 @@ body {
   }
 
   .container-hero {
-    margin: 72px auto 56px;
+    margin: 100px auto 56px;
     padding: 0 16px;
   }
 }

@@ -72,14 +72,16 @@ export default function Header() {
       }${
         showBackground || isMenuOpen
           ? " bg-[rgb(var(--background-rgb)/0.9)] shadow-[0_1px_0_rgba(37,52,63,0.06)] backdrop-blur-sm"
-          : " bg-[rgb(var(--background-rgb)/0.4)] shadow-[0_1px_0_rgba(37,52,63,0.06)] backdrop-blur-sm"
+          : " bg-[rgb(var(--background-rgb)/0.9)] shadow-[0_1px_0_rgba(37,52,63,0.06)] backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto flex w-full flex-col lg:flex-row items-center justify-between h-full">
         <div className="flex w-full lg:w-auto items-center justify-between min-h-10">
           <h1 className="flex items-center text-sm sm:text-2xl font-bold leading-none text-(--header-foreground) font-zalando">
             <a href="/" className="inline-flex items-center leading-none">
-              <span className="text-[#ff6f00]">Solvein</span> Digital Agency
+              <p>
+                <span className="text-[#ff6f00]">Solvein</span> Digital Agency
+              </p>
             </a>
           </h1>
           <button

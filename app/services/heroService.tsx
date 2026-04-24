@@ -26,7 +26,7 @@ export default function HeroService({
           alt={title}
           width={1400}
           height={780}
-          className="w-full h-64 sm:h-96 lg:h-125 object-cover"
+          className="w-full h-64 sm:h-96 xl:h-108 object-cover"
           priority
         />
       </div>
