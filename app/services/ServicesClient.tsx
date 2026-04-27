@@ -25,7 +25,7 @@ const servicesData = [
       "Professional website development and management services designed to strengthen brand credibility, support business objectives, and optimize user experience.",
     features: [
       "Enhance brand credibility and trust",
-      "Optimize user experience (UX)",
+      "Optimize user experience (UI/UX)",
       "Increase conversion rates",
       "Support business digital needs",
     ],
