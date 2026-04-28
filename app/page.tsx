@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import HeroSection from "./home/heroSection";
 import HeroVideo from "./home/heroVideo";
 import SolveinSection from "./home/solveinSection";
@@ -9,8 +9,25 @@ import BigBrandPartner, {
 } from "./home/bigBrandPartner";
 import SolveinServices from "./home/solveinServices";
 import GameSection from "./home/gameSection";
-import PartnerSection from "./home/partnerSection";
 import { CTASection } from "./home/CTASection";
+
+const PartnerSection = dynamic(() => import("./home/partnerSection"), {
+  loading: () => (
+    <section className="mt-6 flex flex-col gap-4">
+      <div className="font-zalando container uppercase font-bold text-2xl h-8 bg-gray-200 w-32 animate-pulse" />
+      <div className="h-20 bg-gray-200 animate-pulse rounded" />
+    </section>
+  ),
+  ssr: true,
+});
+
+const LazyBigBrandPartner = dynamic(
+  () => import("./home/bigBrandPartner").then((mod) => mod.default),
+  {
+    loading: () => <BigBrandPartnerSkeleton />,
+    ssr: true,
+  },
+);
 
 const siteUrl = "https://solvein.id";
 
@@ -59,9 +76,7 @@ export default function Home() {
       <HeroSection />
       <Devider />
       <SolveinSection />
-      <Suspense fallback={<BigBrandPartnerSkeleton />}>
-        <BigBrandPartner />
-      </Suspense>
+      <LazyBigBrandPartner />
       <PartnerSection />
       <SolveinServices />
       <GameSection />

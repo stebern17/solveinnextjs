@@ -99,7 +99,7 @@ export default function LogoMarquee() {
           repeat: Infinity,
           repeatType: "loop",
           ease: "linear",
-          duration: 20,
+          duration: 50,
         },
       },
     });
