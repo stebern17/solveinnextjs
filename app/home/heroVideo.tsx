@@ -25,6 +25,9 @@ export default function HeroVideo() {
         onError={handleVideoError}
         className="absolute inset-0 w-full h-full object-cover"
       />
+      <h1 className="absolute inset-0 flex items-center text-center justify-center text-3xl sm:text-6xl uppercase font-zalando font-bold text-white">
+        TAKE THE FIRST STEP <br /> OF YOUR GROWTH
+      </h1>
     </div>
   );
 }

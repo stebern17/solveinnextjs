@@ -55,9 +55,10 @@ export default function ContactUsClient() {
 
     const payload = {
       name: String(formData.get("name") || "").trim(),
-      email: String(formData.get("email") || "").trim(),
+      email: null,
       subject: String(formData.get("subject") || "").trim(),
       message: String(formData.get("message") || "").trim(),
+      whatsapp: String(formData.get("whatsapp") || "").trim(),
     };
 
     try {
@@ -76,14 +77,11 @@ export default function ContactUsClient() {
       <div className="flex flex-col gap-10">
         <div>
           <h1 className="text-3xl sm:text-4xl font-semibold uppercase font-zalando leading-tight">
-            Want to Solve What Matters?
+            READY TO SOLVE WHAT MATTERS?
           </h1>
           <p className="text-justify mt-4 sm:mt-6 text-sm sm:text-base leading-relaxed opacity-80">
-            At <span className="font-bold text-[#ff6f00]">Solvein</span>, we are
-            passionate about solving the most pressing challenges of our time.
-            If you have a problem that needs solving, we want to hear from you.
-            Our team of experts is ready to tackle complex issues and provide
-            innovative solutions that make a real difference.
+            Tell us what you’re facing. We’ll help you define it, solve it, and
+            move forward with clarity.
           </p>
         </div>
 
@@ -98,7 +96,7 @@ export default function ContactUsClient() {
                 href="mailto:marketing@solvein.com"
                 className="text-sm font-zalando hover:text-[#ff6f00] transition-colors duration-200"
               >
-                marketing@solvein.com
+                hi.solvein@gmail.com
               </a>
             </div>
           </div>
@@ -133,7 +131,7 @@ export default function ContactUsClient() {
                   TikTok
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/solvein.id/"
                   aria-label="Instagram"
                   className="flex items-center gap-1.5 text-xs font-zalando uppercase tracking-widest hover:text-[#ff6f00] transition-colors duration-200"
                 >
@@ -141,7 +139,7 @@ export default function ContactUsClient() {
                   Instagram
                 </a>
                 <a
-                  href="#"
+                  href="https://id.linkedin.com/company/solvein-id"
                   aria-label="LinkedIn"
                   className="flex items-center gap-1.5 text-xs font-zalando uppercase tracking-widest hover:text-[#ff6f00] transition-colors duration-200"
                 >
@@ -184,16 +182,16 @@ export default function ContactUsClient() {
             </div>
             <div className="flex flex-col gap-1.5">
               <label
-                htmlFor="email"
+                htmlFor="whatsapp"
                 className="text-xs uppercase tracking-widest font-semibold opacity-80"
               >
-                Email
+                WhatsApp
               </label>
               <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="your@email.com"
+                id="whatsapp"
+                name="whatsapp"
+                type="tel"
+                placeholder="0812-3456-7890"
                 required
                 suppressHydrationWarning
                 className="bg-transparent border border-(--foreground)/20 rounded-lg px-4 py-3 text-sm placeholder:opacity-30 focus:outline-none focus:border-[#ff6f00] focus:ring-1 focus:ring-[#ff6f00] transition-all duration-200"
@@ -206,13 +204,13 @@ export default function ContactUsClient() {
               htmlFor="subject"
               className="text-xs uppercase tracking-widest font-semibold opacity-80"
             >
-              Subject
+              Issue
             </label>
             <input
               id="subject"
               name="subject"
               type="text"
-              placeholder="What can we help you with?"
+              placeholder="Rebrand / Socmed / Sponsorship / Partnership"
               required
               suppressHydrationWarning
               className="bg-transparent border border-(--foreground)/20 rounded-lg px-4 py-3 text-sm placeholder:opacity-30 focus:outline-none focus:border-[#ff6f00] focus:ring-1 focus:ring-[#ff6f00] transition-all duration-200"
@@ -229,7 +227,7 @@ export default function ContactUsClient() {
             <textarea
               id="message"
               name="message"
-              placeholder="Tell us about your challenge..."
+              placeholder="Send Message"
               rows={5}
               required
               suppressHydrationWarning
@@ -262,7 +260,7 @@ export default function ContactUsClient() {
             className="group relative overflow-hidden bg-[#ff6f00] text-white rounded-lg py-3.5 font-semibold uppercase cursor-pointer tracking-widest text-sm font-zalando transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,111,0,0.4)]"
           >
             <span className="relative z-10">
-              {status === "submitting" ? "Sending..." : "Send Message"}
+              {status === "submitting" ? "Sending..." : "Let’s Solve It"}
             </span>
             <span className="absolute inset-0 bg-[#e65c00] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </button>

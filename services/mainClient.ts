@@ -16,19 +16,19 @@ export async function getMainClient() {
       {
         mediaUrl: resolveAssetUrl(data.Client_1?.url),
         alt: data.Client_1?.alternativeText,
-        desc: data.Client_1_Description?.[0]?.children?.[0]?.text,
+        desc: data.Client_1_Description?.[0]?.children,
         mime: data.Client_1?.mime,
       },
       {
         mediaUrl: resolveAssetUrl(data.Client_2?.url),
         alt: data.Client_2?.alternativeText,
-        desc: data.Client_2_Description?.[0]?.children?.[0]?.text,
+        desc: data.Client_2_Description?.[0]?.children,
         mime: data.Client_2?.mime,
       },
       {
         mediaUrl: resolveAssetUrl(data.Client_3?.url),
         alt: data.Client_3?.alternativeText,
-        desc: data.Client_3_Description?.[0]?.children?.[0]?.text,
+        desc: data.Client_3_Description?.[0]?.children,
         mime: data.Client_3?.mime,
       },
     ],

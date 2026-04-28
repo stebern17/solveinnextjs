@@ -2,9 +2,10 @@ import { fetchAPI } from "@/lib/api";
 
 export async function submitForm(data: {
   name: string;
-  email: string;
+  email: string | null;
   subject: string;
   message: string;
+  whatsapp: string;
 }) {
   return fetchAPI("/api/submited-forms", {
     method: "POST",
@@ -14,6 +15,7 @@ export async function submitForm(data: {
         Email: data.email,
         Subject: data.subject,
         Message: data.message,
+        WhatsappNumber: data.whatsapp,
       },
     }),
   });

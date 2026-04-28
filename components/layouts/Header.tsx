@@ -73,7 +73,8 @@ export default function Header() {
           <h1 className="flex items-center text-sm sm:text-2xl font-bold leading-none text-(--header-foreground) font-zalando">
             <a href="/" className="inline-flex items-center leading-none">
               <p>
-                <span className="text-[#ff6f00]">Solvein</span> Digital Agency
+                <span className="text-[#ff6f00]">Solvein</span> Creative &
+                Digital Agency
               </p>
             </a>
           </h1>

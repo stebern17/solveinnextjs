@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://solvein.id"),
 
   title: {
-    default: "Solvein Brand Architecture Agency",
-    template: "%s | Solvein Brand Architecture Agency",
+    default: "Solvein Creative & Digital Agency",
+    template: "%s | Solvein Creative & Digital Agency",
   },
 
   description:
@@ -40,21 +40,21 @@ export const metadata: Metadata = {
 
   authors: [{ name: "Solvein Team" }],
   creator: "Solvein",
-  applicationName: "Solvein Brand Architecture Agency",
+  applicationName: "Solvein Creative & Digital Agency",
   referrer: "origin-when-cross-origin",
 
   openGraph: {
-    title: "Solvein Brand Architecture Agency",
+    title: "Solvein Creative & Digital Agency",
     description:
       "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil yang terukur.",
     url: "https://solvein.id",
-    siteName: "Solvein Brand Architecture Agency",
+    siteName: "Solvein Creative & Digital Agency",
     images: [
       {
         url: "/images/logo/og_image.png",
         width: 1200,
         height: 342,
-        alt: "Solvein Brand Architecture Agency",
+        alt: "Solvein Creative & Digital Agency",
       },
     ],
     locale: "id_ID",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Solvein Brand Architecture Agency",
+    title: "Solvein Creative & Digital Agency",
     description:
       "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil yang terukur.",
     images: ["/images/logo/og_image.png"],
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     shortcut: ["/favicon.ico"],
   },
 
-  category: "Brand Architecture Agency",
+  category: "Brand Creative & Digital Agency",
 };
 
 export default function RootLayout({
