@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 
 type MainClientItem = {
   mediaUrl: string;
@@ -20,19 +20,11 @@ export default function BigBrandPartnerCard({
   index,
   isVideo,
 }: BigBrandPartnerCardProps) {
-  const [isMediaLoaded, setIsMediaLoaded] = useState(false);
   const title = client.alt || `Client ${index + 1}`;
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="relative overflow-hidden">
-        {!isMediaLoaded ? (
-          <div
-            className="absolute inset-0 z-10 animate-pulse bg-gray-200"
-            aria-hidden="true"
-          />
-        ) : null}
-
+      <div className="relative overflow-hidden bg-gray-100 aspect-square">
         {isVideo ? (
           <video
             src={client.mediaUrl}
@@ -40,22 +32,16 @@ export default function BigBrandPartnerCard({
             loop
             muted
             playsInline
-            onLoadedData={() => setIsMediaLoaded(true)}
-            onCanPlay={() => setIsMediaLoaded(true)}
-            className={`w-full aspect-square object-cover transition-opacity duration-300 ${
-              isMediaLoaded ? "opacity-100" : "opacity-0"
-            }`}
+            className="w-full h-full object-cover"
             aria-label={title}
           />
         ) : (
-          <img
+          <Image
             src={client.mediaUrl}
             alt={title}
-            onLoad={() => setIsMediaLoaded(true)}
-            onError={() => setIsMediaLoaded(true)}
-            className={`w-full aspect-square object-cover transition-all duration-500 ease-out ${
-              isMediaLoaded ? "opacity-100" : "opacity-0"
-            } hover:scale-110`}
+            fill
+            unoptimized
+            className="object-cover hover:scale-110 transition-transform duration-300"
           />
         )}
       </div>

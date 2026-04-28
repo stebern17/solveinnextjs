@@ -405,7 +405,7 @@ export default function EndlessRunner() {
 
               {/* CONTACT */}
               <a
-                href="/contact"
+                href="/contactUs"
                 className="
                 relative inline-flex items-center justify-center
                 px-6 py-3 rounded-full border border-[#ff6f00]
