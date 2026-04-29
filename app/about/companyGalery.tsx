@@ -5,9 +5,9 @@ import { useState } from "react";
 export default function CompanyGalery() {
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
   const images = [
-    "/images/hero_image.jpg",
-    "/images/hero_image.jpg",
-    "/images/hero_image.jpg",
+    "/images/aboutus/PROFILE-1.webp",
+    "/images/aboutus/PROFILE-2.webp",
+    "/images/aboutus/PROFILE-3.webp",
   ];
 
   return (

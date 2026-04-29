@@ -325,7 +325,7 @@ export default function EndlessRunner() {
       {!started && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 rounded-2xl p-4 text-center overflow-auto">
           <h5 className="text-white text-base sm:text-lg mb-4 font-zalando uppercase tracking-wide">
-            "Beat it up"
+            "READY. SET. SOLVE."
           </h5>
           <button
             type="button"
