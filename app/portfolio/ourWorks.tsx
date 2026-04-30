@@ -92,14 +92,13 @@ export default function OurWorks() {
                 }}
                 className={dimensions ? "absolute inset-0" : "relative"}
               >
-                <Image
+                <img
                   src={images[currentIndex]}
                   alt={`Our Work ${currentIndex + 1}`}
                   width={0}
                   height={0}
                   sizes="100vw"
                   className="w-auto h-auto max-h-[80vh] max-w-[90vw] block"
-                  priority
                   onLoad={(e) => {
                     if (!dimensions) {
                       const img = e.currentTarget;
