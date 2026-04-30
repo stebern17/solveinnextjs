@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
@@ -22,26 +22,14 @@ const images = [
 export default function OurWorks() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Preload all images
-  useEffect(() => {
-    images.forEach((src) => {
-      const img = new window.Image();
-      img.src = src;
-    });
-  }, []);
+  const [dimensions, setDimensions] = useState<{
+    width: number;
+    height: number;
+  } | null>(null);
 
   const slideVariants = {
-    enter: (dir: number) => ({
-      y: dir > 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-    center: {
-      zIndex: 1,
-      y: 0,
-      opacity: 1,
-    },
+    enter: (dir: number) => ({ y: dir > 0 ? 1000 : -1000, opacity: 0 }),
+    center: { zIndex: 1, y: 0, opacity: 1 },
     exit: (dir: number) => ({
       zIndex: 0,
       y: dir < 0 ? 1000 : -1000,
@@ -51,7 +39,6 @@ export default function OurWorks() {
 
   const paginate = (newDirection: number) => {
     setDirection(newDirection);
-    setIsLoading(true);
     setCurrentIndex((prev) => {
       const next = prev + newDirection;
       return next < 0 ? images.length - 1 : next >= images.length ? 0 : next;
@@ -71,16 +58,17 @@ export default function OurWorks() {
           </p>
         </div>
 
-        {/* Image + Controls — wrapper mengikuti lebar gambar */}
         <div className="flex flex-col items-center gap-4">
-          {/* Image Container */}
-          <div className="relative rounded-2xl shadow-2xl overflow-hidden bg-gray-100">
-            {isLoading && (
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
-                <div className="w-8 h-8 border-4 border-gray-300 border-t-[#ff6f00] rounded-full animate-spin" />
-              </div>
-            )}
-            <AnimatePresence initial={false} custom={direction} mode="wait">
+          {/* Image Container — ukuran dikunci setelah gambar pertama load */}
+          <div
+            className="relative rounded-2xl shadow-2xl overflow-hidden"
+            style={
+              dimensions
+                ? { width: dimensions.width, height: dimensions.height }
+                : undefined
+            }
+          >
+            <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={currentIndex}
                 custom={direction}
@@ -90,8 +78,9 @@ export default function OurWorks() {
                 exit="exit"
                 transition={{
                   y: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.5 },
+                  opacity: { duration: 0.3 },
                 }}
+                className={dimensions ? "absolute inset-0" : "relative"}
               >
                 <Image
                   src={images[currentIndex]}
@@ -101,7 +90,15 @@ export default function OurWorks() {
                   sizes="100vw"
                   className="w-auto h-auto max-h-[80vh] max-w-[90vw] block"
                   priority
-                  onLoad={() => setIsLoading(false)}
+                  onLoad={(e) => {
+                    if (!dimensions) {
+                      const img = e.currentTarget;
+                      setDimensions({
+                        width: img.offsetWidth,
+                        height: img.offsetHeight,
+                      });
+                    }
+                  }}
                 />
               </motion.div>
             </AnimatePresence>
@@ -140,7 +137,7 @@ export default function OurWorks() {
             </motion.button>
           </div>
 
-          {/* Progress Bar — mengikuti lebar gambar */}
+          {/* Progress Bar */}
           <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
             <motion.div
               className="h-full bg-[#ff6f00]"
