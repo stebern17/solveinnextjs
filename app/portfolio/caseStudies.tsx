@@ -22,6 +22,7 @@ export default function CaseStudies() {
     width: number;
     height: number;
   } | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const slideVariants = {
     enter: (dir: number) => ({ y: dir > 0 ? 1000 : -1000, opacity: 0 }),
@@ -35,6 +36,7 @@ export default function CaseStudies() {
 
   const paginate = (newDirection: number) => {
     setDirection(newDirection);
+    setIsLoading(true);
     setCurrentIndex((prev) => {
       const next = prev + newDirection;
       return next < 0 ? images.length - 1 : next >= images.length ? 0 : next;
@@ -57,13 +59,18 @@ export default function CaseStudies() {
         <div className="flex flex-col items-center gap-4">
           {/* Image Container — ukuran dikunci setelah gambar pertama load */}
           <div
-            className="relative rounded-2xl shadow-2xl overflow-hidden"
+            className="relative rounded-2xl shadow-2xl overflow-hidden bg-gray-100"
             style={
               dimensions
                 ? { width: dimensions.width, height: dimensions.height }
                 : undefined
             }
           >
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+                <div className="w-8 h-8 border-4 border-gray-300 border-t-[#ff6f00] rounded-full animate-spin" />
+              </div>
+            )}
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={currentIndex}
@@ -94,6 +101,7 @@ export default function CaseStudies() {
                         height: img.offsetHeight,
                       });
                     }
+                    setIsLoading(false);
                   }}
                 />
               </motion.div>

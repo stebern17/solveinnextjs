@@ -18,12 +18,13 @@ export default async function Footer() {
           <div className="flex flex-col gap-2 text-justify">
             <div className="flex gap-2 items-center">
               <FaCircle className="size-2" />
-              <h4 className="text-sm">Headquarter Office</h4>
+              <h4 className="text-sm">Head Office</h4>
             </div>
 
             <p className="text-xs">
-              69VQ+7R7, Pikgondeng, Condongcatur, Kec. Depok, Kabupaten Sleman,
-              Daerah Istimewa Yogyakarta 55281
+              Perum, Jl. Sawitsari Jl. Bunga.5-6 blok J, Pikgondeng,
+              Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa
+              Yogyakarta 55281
             </p>
           </div>
         </div>

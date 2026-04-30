@@ -19,7 +19,6 @@ export default function Header() {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
-    { href: "/about", label: "About" },
     {
       href: "/portfolio",
       label: "Portfolio",
@@ -28,6 +27,7 @@ export default function Header() {
         { href: "/portfolio#caseStudies", label: "Case Studies" },
       ],
     },
+    { href: "/about", label: "About" },
     { href: "/contactUs", label: "Contact" },
   ];
 
