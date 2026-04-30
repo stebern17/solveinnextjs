@@ -21,11 +21,11 @@ export default function Header() {
     { href: "/services", label: "Services" },
     { href: "/about", label: "About" },
     {
-      href: "/portofolio",
-      label: "Portofolio",
+      href: "/portfolio",
+      label: "Portfolio",
       submenu: [
-        { href: "/portofolio#ourWorks", label: "Our Works" },
-        { href: "/portofolio#caseStudies", label: "Case Studies" },
+        { href: "/portfolio#ourWorks", label: "Our Works" },
+        { href: "/portfolio#caseStudies", label: "Case Studies" },
       ],
     },
     { href: "/contactUs", label: "Contact" },
