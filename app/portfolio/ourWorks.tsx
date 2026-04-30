@@ -5,18 +5,21 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
+// Version string for cache-busting on redeployment
+const IMAGE_VERSION = "v=1.0.1";
+
 const images = [
-  "/images/ourworks/1.webp",
-  "/images/ourworks/2.webp",
-  "/images/ourworks/3.webp",
-  "/images/ourworks/4.webp",
-  "/images/ourworks/5.webp",
-  "/images/ourworks/6.webp",
-  "/images/ourworks/7.webp",
-  "/images/ourworks/8.webp",
-  "/images/ourworks/9.webp",
-  "/images/ourworks/10.webp",
-  "/images/ourworks/11.webp",
+  `/images/ourworks/1.webp?${IMAGE_VERSION}`,
+  `/images/ourworks/2.webp?${IMAGE_VERSION}`,
+  `/images/ourworks/3.webp?${IMAGE_VERSION}`,
+  `/images/ourworks/4.webp?${IMAGE_VERSION}`,
+  `/images/ourworks/5.webp?${IMAGE_VERSION}`,
+  `/images/ourworks/6.webp?${IMAGE_VERSION}`,
+  `/images/ourworks/7.webp?${IMAGE_VERSION}`,
+  `/images/ourworks/8.webp?${IMAGE_VERSION}`,
+  `/images/ourworks/9.webp?${IMAGE_VERSION}`,
+  `/images/ourworks/10.webp?${IMAGE_VERSION}`,
+  `/images/ourworks/11.webp?${IMAGE_VERSION}`,
 ];
 
 export default function OurWorks() {

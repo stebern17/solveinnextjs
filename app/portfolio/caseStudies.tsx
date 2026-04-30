@@ -5,14 +5,17 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
+// Version string for cache-busting on redeployment
+const IMAGE_VERSION = "v=1.0.1";
+
 const images = [
-  "/images/casestudies/1.webp",
-  "/images/casestudies/2.webp",
-  "/images/casestudies/3.webp",
-  "/images/casestudies/4.webp",
-  "/images/casestudies/5.webp",
-  "/images/casestudies/6.webp",
-  "/images/casestudies/7.webp",
+  `/images/casestudies/1.webp?${IMAGE_VERSION}`,
+  `/images/casestudies/2.webp?${IMAGE_VERSION}`,
+  `/images/casestudies/3.webp?${IMAGE_VERSION}`,
+  `/images/casestudies/4.webp?${IMAGE_VERSION}`,
+  `/images/casestudies/5.webp?${IMAGE_VERSION}`,
+  `/images/casestudies/6.webp?${IMAGE_VERSION}`,
+  `/images/casestudies/7.webp?${IMAGE_VERSION}`,
 ];
 
 export default function CaseStudies() {
