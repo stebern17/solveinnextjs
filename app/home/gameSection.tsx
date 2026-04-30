@@ -45,10 +45,11 @@ export default function GameSection() {
       className="relative w-full sm:min-h-screen flex items-center justify-center overflow-hidden mt-10 sm:mt-0"
     >
       <div className="container flex flex-col items-center gap-8 sm:gap-10 py-8">
-        <h3 className="max-w-4xl font-zalando text-xl sm:text-3xl lg:text-4xl text-start sm:text-center uppercase font-semibold leading-snug text-foreground transition-colors duration-500">
-          Lets see how good you are at{" "}
-          <span className="text-[#ff6f00] font-bold">solving</span> problems,
-          play our endless runner game and try to beat your high score!
+        <h3 className="max-w-4xl font-zalando text-lg sm:text-xl lg:text-2xl text-start sm:text-center uppercase font-semibold leading-snug text-foreground transition-colors duration-500">
+          WONDER HOW WOULD YOU{" "}
+          <span className="text-[#ff6f00] font-bold">SOLVE</span> THE THINGS?{" "}
+          <br />
+          TRY TO BEAT THE GAME AND DECIDE IF YOU NEED PROFESSIONAL!
         </h3>
 
         <EndlessRunner />

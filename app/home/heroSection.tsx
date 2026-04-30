@@ -8,16 +8,16 @@ export default function HeroSection() {
           We <span className="text-[#ff6f00]"> Solve </span> What Matters
         </h1>
         <p className="text-base sm:text-lg text-gray-600 transition-colors duration-500 mb-2 lg:mb-8">
-          At Solvein Digital Agency, we help businesses solve their problems
-          with innovative solutions. From web development to digital marketing,
-          we have the expertise to take your business to the next level.
+          Every business faces different challenges. That’s why we don’t begin
+          with execution, instead understanding. Explore how our services are
+          designed to solve what matters and drive measurable growth.
         </p>
-        <PrimaryButton>Discover Our Services</PrimaryButton>
+        <PrimaryButton href="/services">Let’s SOLVE it!</PrimaryButton>
       </div>
       <div>
         <img
-          src="/images/hero_image.jpg"
-          alt="Hero Image"
+          src="/images/hero_image.webp"
+          alt="Solvein Digital & Creative Agency"
           className="aspect-square w-full max-w-md lg:max-w-xl rounded-xl shadow-lg object-cover"
         />
       </div>

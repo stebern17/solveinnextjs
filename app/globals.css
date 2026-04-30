@@ -8,6 +8,9 @@
 :root {
   --background: #eaefef;
   --foreground: #25343f;
+  --header-foreground: #25343f;
+  --header-muted: #42505a;
+  --background-rgb: 234 239 239;
   --font-zalando: "Zalando Sans Expanded", Arial, Helvetica, sans-serif;
 }
 
@@ -15,6 +18,9 @@
 .dark {
   --background: #27272a;
   --foreground: #ffffff;
+  --header-foreground: #ffffff;
+  --header-muted: #d4d4d8;
+  --background-rgb: 39 39 42;
 }
 
 /* =========================
@@ -44,7 +50,7 @@ body {
 .container-hero {
   width: 100%;
   max-width: 1440px;
-  margin: 96px auto 80px;
+  margin: 120px auto 80px;
   padding: 0 24px;
 }
 
@@ -54,7 +60,7 @@ body {
   }
 
   .container-hero {
-    margin: 72px auto 56px;
+    margin: 100px auto 56px;
     padding: 0 16px;
   }
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { HiCheckCircle } from "react-icons/hi";
+import PrimaryButton from "@/components/ui/primaryButton";
 
 type HeroServiceProps = {
   title: string;
@@ -16,7 +17,7 @@ export default function HeroService({
 }: HeroServiceProps) {
   return (
     <section className="w-full">
-      <h1 className="font-zalando text-3xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight text-foreground mb-4 sm:mb-6">
+      <h1 className="font-zalando text-2xl sm:text-3xl 2xl:text-5xl font-bold uppercase tracking-tight text-foreground mb-4 sm:mb-6">
         {title}
       </h1>
 
@@ -26,16 +27,16 @@ export default function HeroService({
           alt={title}
           width={1400}
           height={780}
-          className="w-full h-64 sm:h-96 lg:h-125 object-cover"
+          className="w-full h-64 sm:h-96 xl:h-108 object-cover"
           priority
         />
       </div>
 
-      <p className="mt-6 sm:mt-8 text-foreground/85 text-base sm:text-lg lg:text-2xl leading-relaxed text-justify max-w-6xl">
+      <p className="mt-6 sm:mt-8 text-foreground/85 text-base sm:text-lg lg:text-xl leading-relaxed text-justify max-w-6xl">
         {description}
       </p>
 
-      <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 max-w-6xl">
+      <ul className="my-6 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 max-w-6xl">
         {features.map((feature, index) => (
           <li
             key={index}
@@ -46,6 +47,9 @@ export default function HeroService({
           </li>
         ))}
       </ul>
+      <PrimaryButton className="w-full" href="/contactUs">
+        Contact Us
+      </PrimaryButton>
     </section>
   );
 }

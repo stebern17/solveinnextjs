@@ -325,7 +325,7 @@ export default function EndlessRunner() {
       {!started && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 rounded-2xl p-4 text-center overflow-auto">
           <h5 className="text-white text-base sm:text-lg mb-4 font-zalando uppercase tracking-wide">
-            "Click To Jump"
+            "READY?"
           </h5>
           <button
             type="button"
@@ -349,7 +349,7 @@ export default function EndlessRunner() {
             "
             />
             <span className="relative z-10 font-semibold uppercase tracking-wide cursor-pointer text-sm sm:text-base">
-              Start Your Brand Journey
+              Start Now
             </span>
           </button>
         </div>
@@ -405,7 +405,7 @@ export default function EndlessRunner() {
 
               {/* CONTACT */}
               <a
-                href="/contact"
+                href="/contactUs"
                 className="
                 relative inline-flex items-center justify-center
                 px-6 py-3 rounded-full border border-[#ff6f00]

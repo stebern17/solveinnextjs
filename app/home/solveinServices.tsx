@@ -9,30 +9,59 @@ export default function SolveinServices() {
   const wRef = useRef<HTMLSpanElement | null>(null);
   const services = [
     {
-      title: "Brand Strategy",
+      title: "Social Media Management",
       description:
-        "Crafting compelling brand narratives that resonate with your audience and drive engagement.",
+        "Social media management services to help brands build a consistent and impactful digital presence, from content strategy to account management, along with digital campaign integration and performance optimization.",
     },
     {
-      title: "Digital Marketing",
+      title: "Website",
       description:
-        "Creating data-driven campaigns that amplify your brand’s reach and impact across digital channels.",
+        "Professional website development and management services designed to strengthen brand credibility, support business objectives, and optimize user experience.",
     },
     {
-      title: "Creative Design",
+      title: "Business & Marketing Consulting",
       description:
-        "Designing visually stunning and cohesive brand identities that captivate and inspire.",
+        "Business and digital marketing consulting services to help brands gain strategic clarity, develop data-driven digital strategies, and build measurable growth frameworks.",
     },
     {
-      title: "Web Development",
+      title: "Branding",
       description:
-        "Building seamless, user-friendly websites that embody your brand’s essence and enhance user experience.",
+        "Branding services to build a strong brand identity, from brand foundations to visual systems and consistent communication strategies.",
+    },
+    {
+      title: "Photo & Video Production",
+      description:
+        "Professional photo and video production services, from concept development to execution, to support brand communication needs.",
+    },
+    {
+      title: "Product & Print Design",
+      description:
+        "Product and print design services to support brand visual needs, from design development to mockups and presentation materials.",
+    },
+    {
+      title: "Digital Paid Ads",
+      description:
+        "Data-driven digital advertising services to help brands reach the right audience through strategy, execution, and campaign optimization.",
+    },
+    {
+      title: "Media Placement",
+      description:
+        "Media placement services to expand brand exposure through strategic channel selection and cross-media content distribution.",
+    },
+    {
+      title: "Influencer & Community",
+      description:
+        "Influencer and community services to help brands build strategic collaborations with KOLs, KOCs, and relevant communities to expand reach and strengthen meaningful audience connections.",
+    },
+    {
+      title: "Integrated Activation",
+      description:
+        "Integrated activation services to unify multiple marketing channels into a cohesive and strategic approach.",
     },
   ];
   useEffect(() => {
     const section = sectionRef.current;
     const cursor = cursorRef.current;
-    const heading = headingRef.current;
     const w = wRef.current;
     if (!section || !cursor || !w) return;
     const cursorSize = 48;
@@ -103,7 +132,7 @@ export default function SolveinServices() {
           ref={headingRef}
           className="text-2xl sm:text-3xl font-bold font-zalando uppercase md:mb-2 z-25 relative text-gray-800 transition-colors duration-500 mt-6 "
         >
-          <span ref={wRef}>W</span>hat Can We Do
+          <span ref={wRef}>W</span>hat Can We Solve?
         </h1>
         <a
           href="/services"
