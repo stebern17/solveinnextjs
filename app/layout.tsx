@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://solvein.id"),
 
   title: {
-    default: "Solvein Creative & Digital Agency",
-    template: "%s | Solvein Creative & Digital Agency",
+    default: "Solvein Digital & Creative Agency",
+    template: "%s | Solvein Digital & Creative Agency",
   },
 
   description:
@@ -40,21 +40,21 @@ export const metadata: Metadata = {
 
   authors: [{ name: "Solvein Team" }],
   creator: "Solvein",
-  applicationName: "Solvein Creative & Digital Agency",
+  applicationName: "Solvein Digital & Creative Agency",
   referrer: "origin-when-cross-origin",
 
   openGraph: {
-    title: "Solvein Creative & Digital Agency",
+    title: "Solvein Digital & Creative Agency",
     description:
       "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil yang terukur.",
     url: "https://solvein.id",
-    siteName: "Solvein Creative & Digital Agency",
+    siteName: "Solvein Digital & Creative Agency",
     images: [
       {
         url: "/images/logo/og_image.png",
         width: 1200,
         height: 342,
-        alt: "Solvein Creative & Digital Agency",
+        alt: "Solvein Digital & Creative Agency",
       },
     ],
     locale: "id_ID",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Solvein Creative & Digital Agency",
+    title: "Solvein Digital & Creative Agency",
     description:
       "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil yang terukur.",
     images: ["/images/logo/og_image.png"],

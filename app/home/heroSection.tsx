@@ -12,14 +12,12 @@ export default function HeroSection() {
           with execution, instead understanding. Explore how our services are
           designed to solve what matters and drive measurable growth.
         </p>
-        <PrimaryButton href="/services" withIntroLoader>
-          Let’s SOLVE it!
-        </PrimaryButton>
+        <PrimaryButton href="/services">Let’s SOLVE it!</PrimaryButton>
       </div>
       <div>
         <img
-          src="/images/hero_image.jpg"
-          alt="Hero Image"
+          src="/images/hero_image.webp"
+          alt="Solvein Digital & Creative Agency"
           className="aspect-square w-full max-w-md lg:max-w-xl rounded-xl shadow-lg object-cover"
         />
       </div>

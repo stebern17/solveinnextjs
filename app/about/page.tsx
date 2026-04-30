@@ -3,6 +3,7 @@ import HeroSection from "./heroSection";
 import Devider from "./components/devider";
 import CompanyGalery from "./companyGalery";
 import VisionMission from "./visionMission";
+import TheValueChain from "./theValueChain";
 
 const siteUrl = "https://solvein.id";
 
@@ -50,7 +51,7 @@ export default function AboutPage() {
       <HeroSection />
       <Devider />
       <CompanyGalery />
-      <VisionMission />
+      <TheValueChain />
     </>
   );
 }

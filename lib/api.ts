@@ -1,14 +1,22 @@
 export const baseURL =
   process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:1337";
 
-export async function fetchAPI(path: string, options?: RequestInit) {
+const REVALIDATE_12_HOURS = 43200; // 12 hours in seconds
+
+export async function fetchAPI(
+  path: string,
+  options?: RequestInit & { revalidate?: number },
+) {
+  const { revalidate, ...fetchOptions } = options || {};
+  const revalidateTime = revalidate ?? REVALIDATE_12_HOURS;
+
   const res = await fetch(`${baseURL}${path}`, {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    cache: "no-cache",
-    ...options,
+    next: { revalidate: revalidateTime },
+    ...fetchOptions,
   });
 
   if (!res.ok) {

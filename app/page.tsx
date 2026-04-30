@@ -32,7 +32,7 @@ const LazyBigBrandPartner = dynamic(
 const siteUrl = "https://solvein.id";
 
 export const metadata: Metadata = {
-  title: "Solvein Creative & Digital Agency",
+  title: "Solvein Digital & Creative Agency",
   description:
     "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil yang terukur.",
   keywords: [
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   openGraph: {
-    title: "Solvein Creative & Digital Agency",
+    title: "Solvein Digital & Creative Agency",
     description:
       "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil yang terukur.",
     url: siteUrl,
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Solvein Creative & Digital Agency",
+    title: "Solvein Digital & Creative Agency",
     description:
       "Solvein adalah digital agency Indonesia yang membantu brand bertumbuh melalui strategi terarah, eksekusi terintegrasi, dan hasil yang terukur.",
     images: ["/images/logo/og_image.png"],

@@ -7,7 +7,9 @@ const resolveAssetUrl = (url?: string | null) => {
 };
 
 export async function getMainClient() {
-  const res = (await fetchAPI("/api/main-client?populate=*")) as any;
+  const res = (await fetchAPI("/api/main-client?populate=*", {
+    revalidate: 43200, // 12 hours
+  })) as any;
 
   const data = res?.data || res;
 

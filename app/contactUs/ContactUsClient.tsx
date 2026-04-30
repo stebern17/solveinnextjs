@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { HiMail, HiLocationMarker } from "react-icons/hi";
+import { HiPhone, HiLocationMarker } from "react-icons/hi";
 import { SiTiktok } from "react-icons/si";
 import { IoShareSocial } from "react-icons/io5";
-import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { submitForm } from "@/services/submitedForm";
 
 export default function ContactUsClient() {
@@ -77,7 +77,7 @@ export default function ContactUsClient() {
       <div className="flex flex-col gap-10">
         <div>
           <h1 className="text-3xl sm:text-4xl font-semibold uppercase font-zalando leading-tight">
-            READY TO SOLVE WHAT MATTERS?
+            READY TO SOLVE?
           </h1>
           <p className="text-justify mt-4 sm:mt-6 text-sm sm:text-base leading-relaxed opacity-80">
             Tell us what you’re facing. We’ll help you define it, solve it, and
@@ -87,17 +87,29 @@ export default function ContactUsClient() {
 
         <div className="flex flex-col gap-6">
           <div className="flex items-start gap-4">
-            <HiMail className="mt-0.5 text-[#ff6f00] shrink-0 text-xl" />
+            <HiPhone className="mt-0.5 text-[#ff6f00] shrink-0 text-xl" />
             <div>
               <p className="text-xs uppercase tracking-widest font-semibold opacity-50 mb-1">
-                Email
+                Contact
               </p>
-              <a
-                href="mailto:marketing@solvein.com"
-                className="text-sm font-zalando hover:text-[#ff6f00] transition-colors duration-200"
-              >
-                hi.solvein@gmail.com
-              </a>
+              <div className="flex gap-6">
+                <a
+                  href="https://wa.link/03l2gi"
+                  aria-label="WhatsApp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-zalando uppercase tracking-widest hover:text-[#ff6f00] transition-colors duration-200"
+                >
+                  <FaWhatsapp className="text-base" />
+                  WhatsApp
+                </a>
+                <a
+                  href="mailto:marketing@solvein.com"
+                  className="text-sm font-zalando hover:text-[#ff6f00] transition-colors duration-200"
+                >
+                  hi.solvein@gmail.com
+                </a>
+              </div>
             </div>
           </div>
 
@@ -125,14 +137,19 @@ export default function ContactUsClient() {
                 <a
                   href="#"
                   aria-label="TikTok"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-zalando uppercase tracking-widest hover:text-[#ff6f00] transition-colors duration-200"
                 >
                   <SiTiktok className="text-base" />
                   TikTok
                 </a>
+
                 <a
                   href="https://www.instagram.com/solvein.id/"
                   aria-label="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-zalando uppercase tracking-widest hover:text-[#ff6f00] transition-colors duration-200"
                 >
                   <FaInstagram className="text-base" />
@@ -141,6 +158,8 @@ export default function ContactUsClient() {
                 <a
                   href="https://id.linkedin.com/company/solvein-id"
                   aria-label="LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-zalando uppercase tracking-widest hover:text-[#ff6f00] transition-colors duration-200"
                 >
                   <FaLinkedinIn className="text-base" />
@@ -260,7 +279,7 @@ export default function ContactUsClient() {
             className="group relative overflow-hidden bg-[#ff6f00] text-white rounded-lg py-3.5 font-semibold uppercase cursor-pointer tracking-widest text-sm font-zalando transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,111,0,0.4)]"
           >
             <span className="relative z-10">
-              {status === "submitting" ? "Sending..." : "Let’s Solve It"}
+              {status === "submitting" ? "Sending..." : "Please, Solve It!"}
             </span>
             <span className="absolute inset-0 bg-[#e65c00] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </button>

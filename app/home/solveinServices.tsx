@@ -39,7 +39,7 @@ export default function SolveinServices() {
         "Product and print design services to support brand visual needs, from design development to mockups and presentation materials.",
     },
     {
-      title: "Paid Ads",
+      title: "Digital Paid Ads",
       description:
         "Data-driven digital advertising services to help brands reach the right audience through strategy, execution, and campaign optimization.",
     },
@@ -62,7 +62,6 @@ export default function SolveinServices() {
   useEffect(() => {
     const section = sectionRef.current;
     const cursor = cursorRef.current;
-    const heading = headingRef.current;
     const w = wRef.current;
     if (!section || !cursor || !w) return;
     const cursorSize = 48;
@@ -133,7 +132,7 @@ export default function SolveinServices() {
           ref={headingRef}
           className="text-2xl sm:text-3xl font-bold font-zalando uppercase md:mb-2 z-25 relative text-gray-800 transition-colors duration-500 mt-6 "
         >
-          <span ref={wRef}>W</span>hat Can We Do
+          <span ref={wRef}>W</span>hat Can We Solve?
         </h1>
         <a
           href="/services"

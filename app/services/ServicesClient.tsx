@@ -79,7 +79,7 @@ const servicesData = [
     ],
   },
   {
-    title: "Paid Ads",
+    title: "Digital Paid Ads",
     image: "/images/services/PAID-ADS.webp",
     description:
       "Data-driven digital advertising services to help brands reach the right audience through strategy, execution, and campaign optimization.",

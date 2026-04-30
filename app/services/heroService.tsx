@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { HiCheckCircle } from "react-icons/hi";
+import PrimaryButton from "@/components/ui/primaryButton";
 
 type HeroServiceProps = {
   title: string;
@@ -35,7 +36,7 @@ export default function HeroService({
         {description}
       </p>
 
-      <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 max-w-6xl">
+      <ul className="my-6 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 max-w-6xl">
         {features.map((feature, index) => (
           <li
             key={index}
@@ -46,6 +47,9 @@ export default function HeroService({
           </li>
         ))}
       </ul>
+      <PrimaryButton className="w-full" href="/contactUs">
+        Contact Us
+      </PrimaryButton>
     </section>
   );
 }
