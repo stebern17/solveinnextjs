@@ -135,7 +135,7 @@ export default function ContactUsClient() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/@solvein.id?_r=1&_t=ZS-967oLM7Xgxk"
                   aria-label="TikTok"
                   target="_blank"
                   rel="noopener noreferrer"

@@ -65,7 +65,7 @@ export default async function Footer() {
             </li>
             <li>
               <a
-                href="#"
+                href="https://www.tiktok.com/@solvein.id?_r=1&_t=ZS-967oLM7Xgxk"
                 className=" hover:text-[#ff6f00]"
                 target="_blank"
                 rel="noopener noreferrer"
