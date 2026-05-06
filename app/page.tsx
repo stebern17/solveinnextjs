@@ -75,11 +75,12 @@ export default function Home() {
       <HeroVideo />
       <HeroSection />
       <Devider />
+      <GameSection />
+      <Devider />
       <SolveinSection />
       <LazyBigBrandPartner />
       <PartnerSection />
       <SolveinServices />
-      <GameSection />
       <CTASection />
     </>
   );

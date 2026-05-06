@@ -1,8 +1,18 @@
+"use client";
+
+import { useRef } from "react";
 import SecondaryButton from "@/components/ui/secondaryButton";
+import { useThemeOnIntersect } from "@/app/hooks/useThemeOnIntersect";
 
 export function CTASection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  useThemeOnIntersect(sectionRef, { threshold: 0.5 });
+
   return (
-    <section className="min-h-[70vh] sm:min-h-screen w-full mx-auto flex flex-col items-center justify-center gap-6 px-4 sm:px-8 relative">
+    <section
+      ref={sectionRef}
+      className="min-h-screen w-full mx-auto flex flex-col items-center justify-center gap-6 px-4 sm:px-8 relative"
+    >
       <div className="container flex flex-col gap-8">
         <h1 className="font-zalando uppercase text-3xl sm:text-5xl lg:text-6xl text-[#ff6f00] font-extrabold mb-4 sm:mb-6 tracking-widest">
           Ready. <br /> Set. <br /> Solve.

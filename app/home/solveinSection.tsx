@@ -1,6 +1,6 @@
 export default function SolveinSection() {
   return (
-    <section className="min-h-[50vh] w-full mx-auto grid grid-cols-1 items-center lg:grid-cols-2 place-items-center gap-8 px-4 sm:px-8 relative border border-b border-gray-200 container">
+    <section className="min-h-[50vh] w-full mx-auto grid grid-cols-1 items-center lg:grid-cols-2 place-items-center gap-8 px-4 sm:px-8 relative container">
       <div className="flex items-center">
         <img
           src="/images/logo/logo_black.png"
