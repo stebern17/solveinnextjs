@@ -1,64 +1,34 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { getServices, type ServiceItem } from "@/services/services";
 
 export default function SolveinServices() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const cursorRef = useRef<HTMLDivElement | null>(null);
   const headingRef = useRef<HTMLHeadingElement | null>(null);
   const wRef = useRef<HTMLSpanElement | null>(null);
-  const services = [
-    {
-      title: "Social Media Management",
-      description:
-        "Social media management services to help brands build a consistent and impactful digital presence, from content strategy to account management, along with digital campaign integration and performance optimization.",
-    },
-    {
-      title: "Website",
-      description:
-        "Professional website development and management services designed to strengthen brand credibility, support business objectives, and optimize user experience.",
-    },
-    {
-      title: "Business & Marketing Consulting",
-      description:
-        "Business and digital marketing consulting services to help brands gain strategic clarity, develop data-driven digital strategies, and build measurable growth frameworks.",
-    },
-    {
-      title: "Branding",
-      description:
-        "Branding services to build a strong brand identity, from brand foundations to visual systems and consistent communication strategies.",
-    },
-    {
-      title: "Photo & Video Production",
-      description:
-        "Professional photo and video production services, from concept development to execution, to support brand communication needs.",
-    },
-    {
-      title: "Product & Print Design",
-      description:
-        "Product and print design services to support brand visual needs, from design development to mockups and presentation materials.",
-    },
-    {
-      title: "Digital Paid Ads",
-      description:
-        "Data-driven digital advertising services to help brands reach the right audience through strategy, execution, and campaign optimization.",
-    },
-    {
-      title: "Media Placement",
-      description:
-        "Media placement services to expand brand exposure through strategic channel selection and cross-media content distribution.",
-    },
-    {
-      title: "Influencer & Community",
-      description:
-        "Influencer and community services to help brands build strategic collaborations with KOLs, KOCs, and relevant communities to expand reach and strengthen meaningful audience connections.",
-    },
-    {
-      title: "Integrated Activation",
-      description:
-        "Integrated activation services to unify multiple marketing channels into a cohesive and strategic approach.",
-    },
-  ];
+  const [services, setServices] = useState<ServiceItem[]>([]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadServices = async () => {
+      try {
+        const data = await getServices();
+        if (!isMounted) return;
+        setServices(data || []);
+      } catch (error) {
+        console.error("Failed to load services", error);
+      }
+    };
+
+    loadServices();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
   useEffect(() => {
     const section = sectionRef.current;
     const cursor = cursorRef.current;
@@ -127,7 +97,7 @@ export default function SolveinServices() {
         ref={cursorRef}
         className="hidden md:block pointer-events-none absolute left-0 top-0 z-20 h-12 w-12 rounded-full border border-[#ff6f00]/50 bg-[#ff6f00]/10 duration-500 ease-out"
       />
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between md:gap-3 mb-4 md:mb-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between md:gap-3 mb-4 md:mb-6">
         <h1
           ref={headingRef}
           className="text-2xl sm:text-3xl font-bold font-zalando uppercase md:mb-2 z-25 relative text-gray-800 transition-colors duration-500 mt-6 "
@@ -142,26 +112,24 @@ export default function SolveinServices() {
         </a>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-stretch">
         {services.map((service, index) => (
           <div
             key={index}
-            className="group relative flex flex-col gap-4 p-6 border border-gray-200 rounded-xl backdrop-blur-sm shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300 h-full overflow-hidden"
+            className="group relative flex min-h-[180px] flex-col overflow-hidden rounded-xl border border-[#ff6f00] bg-[#ff6f00] p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lg hover:border-gray-300"
           >
             <div className="pointer-events-none absolute -left-10 -top-10 h-24 w-24 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,111,0,0.25),rgba(255,111,0,0))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold tracking-[0.2em] text-gray-500 transition-colors duration-500">
+              <span className="text-xs font-semibold tracking-[0.2em] text-white/80 transition-colors duration-500 group-hover:text-gray-500">
                 0{index + 1}
               </span>
-              <span className="h-px w-12 bg-gray-300 transition-all duration-300 group-hover:w-20 group-hover:bg-[#ff6f00]" />
+              <span className="h-px w-12 bg-white/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#ff6f00]" />
             </div>
-            <h2 className="text-xl font-bold font-zalando uppercase text-gray-800 transition-colors duration-500">
-              {service.title}
-            </h2>
-
-            <p className="text-gray-600 transition-colors duration-500 text-justify grow">
-              {service.description}
-            </p>
+            <div className="flex flex-1 items-center justify-center px-2">
+              <h2 className="text-center text-xl font-bold font-zalando uppercase text-white transition-colors duration-500 group-hover:text-gray-800">
+                {service.title}
+              </h2>
+            </div>
           </div>
         ))}
       </div>
