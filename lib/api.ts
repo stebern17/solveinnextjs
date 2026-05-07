@@ -5,9 +5,9 @@ const REVALIDATE_12_HOURS = 43200; // 12 hours in seconds
 
 export async function fetchAPI(
   path: string,
-  options?: RequestInit & { revalidate?: number },
+  options?: RequestInit & { revalidate?: number; tags?: string[] },
 ) {
-  const { revalidate, ...fetchOptions } = options || {};
+  const { revalidate, tags, ...fetchOptions } = options || {};
   const revalidateTime = revalidate ?? REVALIDATE_12_HOURS;
 
   const res = await fetch(`${baseURL}${path}`, {
@@ -15,7 +15,7 @@ export async function fetchAPI(
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    next: { revalidate: revalidateTime },
+    next: { revalidate: revalidateTime, tags: tags || [] },
     ...fetchOptions,
   });
 

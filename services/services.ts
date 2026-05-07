@@ -34,7 +34,8 @@ const resolveAssetUrl = (url?: string | null) => {
 
 export async function getServices() {
   const res = (await fetchAPI("/api/services?populate=*", {
-    revalidate: 43200,
+    revalidate: 43200, // 12 hours
+    tags: ["services", "services-images"],
   })) as ServicesResponse;
 
   const items = res?.data ?? [];
