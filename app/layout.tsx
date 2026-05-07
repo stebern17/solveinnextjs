@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Noise from "@/components/ui/noise/Noise";
 import Header from "@/components/layouts/Header";
@@ -10,6 +11,67 @@ import IntroLoader from "@/components/layouts/introLoader";
 const DmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
+});
+
+const Serotiva = localFont({
+  variable: "--font-zalando",
+  display: "swap",
+  src: [
+    { path: "./font/Serotiva-Light.woff2", weight: "300", style: "normal" },
+    {
+      path: "./font/Serotiva-LightItalic.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    { path: "./font/Serotiva-Regular.woff2", weight: "400", style: "normal" },
+    {
+      path: "./font/Serotiva-Italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./font/Serotiva-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./font/Serotiva-MediumItalic.woff2",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "./font/Serotiva-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./font/Serotiva-SemiBoldItalic.woff2",
+      weight: "600",
+      style: "italic",
+    },
+    { path: "./font/Serotiva-Bold.woff2", weight: "700", style: "normal" },
+    {
+      path: "./font/Serotiva-BoldItalic.woff2",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "./font/Serotiva-ExtraBold.woff2",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "./font/Serotiva-ExtraBoldItalic.woff2",
+      weight: "800",
+      style: "italic",
+    },
+    { path: "./font/Serotiva-Black.woff2", weight: "900", style: "normal" },
+    {
+      path: "./font/Serotiva-BlackItalic.woff2",
+      weight: "900",
+      style: "italic",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -108,7 +170,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${DmSans.variable} antialiased`}>
+      <body className={`${DmSans.variable} ${Serotiva.variable} antialiased`}>
         <Header />
         <IntroLoader />
         <Noise />

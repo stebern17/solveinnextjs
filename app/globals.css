@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:wght@400;600;700;800&display=swap");
 @import "tailwindcss";
 
 /* =========================
@@ -11,16 +10,15 @@
   --header-foreground: #25343f;
   --header-muted: #42505a;
   --background-rgb: 234 239 239;
-  --font-zalando: "Zalando Sans Expanded", Arial, Helvetica, sans-serif;
 }
 
 /* Dark mode values */
 .dark {
-  --background: #27272a;
+  --background: #030e1d;
   --foreground: #ffffff;
   --header-foreground: #ffffff;
   --header-muted: #d4d4d8;
-  --background-rgb: 39 39 42;
+  /* --background-rgb: 39 39 42; */
 }
 
 /* =========================
@@ -66,7 +64,7 @@ body {
 }
 
 .font-zalando {
-  font-family: var(--font-zalando);
+  font-family: var(--font-zalando), Arial, Helvetica, sans-serif;
 }
 
 /* =========================

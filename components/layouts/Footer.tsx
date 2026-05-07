@@ -9,7 +9,7 @@ import EmailForm from "../ui/EmailForm";
 
 export default async function Footer() {
   return (
-    <footer className="min-h-[40vh] py-10 sm:py-12 px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm text-white bg-[#27272a] relative z-10 mt-6">
+    <footer className="min-h-[40vh] py-10 sm:py-12 px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm text-white bg-[#030e1d] relative z-10 mt-6">
       <div className="flex flex-col justify-between gap-6">
         <div className="flex flex-col gap-4">
           <h4 className="font-semibold text-2xl font-zalando uppercase">

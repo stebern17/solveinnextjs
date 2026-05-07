@@ -49,7 +49,7 @@ export default function IntroLoader({
             {words.map((word, index) => (
               <motion.h1
                 key={word}
-                className={`text-6xl font-zalando uppercase font-bold ${
+                className={`text-8xl font-zalando uppercase font-bold ${
                   word === "Solvein" ? "text-[#ff6f00]" : "text-black"
                 }`}
                 initial={{ opacity: 0, y: 40 }}
