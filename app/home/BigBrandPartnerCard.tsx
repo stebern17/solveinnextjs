@@ -82,6 +82,7 @@ export default function BigBrandPartnerCard({
             src={client.mediaUrl}
             alt={title}
             fill
+            loading="eager"
             unoptimized
             className="object-cover hover:scale-110 transition-transform duration-300"
           />
