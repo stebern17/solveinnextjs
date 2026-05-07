@@ -100,7 +100,7 @@ export default function SolveinServices() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between md:gap-3 mb-4 md:mb-6">
         <h1
           ref={headingRef}
-          className="text-2xl sm:text-3xl font-bold font-zalando uppercase md:mb-2 z-25 relative text-gray-800 transition-colors duration-500 mt-6 "
+          className="text-2xl sm:text-4xl font-bold font-zalando uppercase md:mb-2 z-25 relative text-gray-800 transition-colors duration-500 mt-6 "
         >
           <span ref={wRef}>W</span>hat Can We Solve?
         </h1>
