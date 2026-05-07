@@ -29,6 +29,7 @@ export default function HeroService({
           height={780}
           className="w-full h-64 sm:h-96 xl:h-108 object-cover"
           priority
+          unoptimized
         />
       </div>
 
