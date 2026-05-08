@@ -121,7 +121,11 @@ export default function SolveinServices() {
             key={service.slug || index}
             href={`/services?service=${service.slug}`}
             scroll
-            onClick={() => window.scrollTo(0, 0)}
+            onClick={() => {
+              requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
+              });
+            }}
             className="group cursor-none relative flex min-h-[180px] flex-col overflow-hidden rounded-xl border border-[#ff6f00] bg-[#ff6f00] p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lg hover:border-gray-300"
           >
             <div className="pointer-events-none absolute -left-10 -top-10 h-24 w-24 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,111,0,0.25),rgba(255,111,0,0))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
