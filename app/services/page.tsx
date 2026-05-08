@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import ServicesClient from "./ServicesClient";
 
 const siteUrl = "https://solvein.id";
@@ -42,5 +43,9 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return <ServicesClient />;
+  return (
+    <Suspense fallback={null}>
+      <ServicesClient />
+    </Suspense>
+  );
 }
