@@ -1,13 +1,16 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { getServices, type ServiceItem } from "@/services/services";
+import { useThemeOnIntersect } from "@/app/hooks/useThemeOnIntersect";
 
 export default function SolveinServices() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const cursorRef = useRef<HTMLDivElement | null>(null);
   const headingRef = useRef<HTMLHeadingElement | null>(null);
   const wRef = useRef<HTMLSpanElement | null>(null);
+  useThemeOnIntersect(sectionRef, { threshold: 0.3, theme: "light" });
   const [services, setServices] = useState<ServiceItem[]>([]);
 
   useEffect(() => {
@@ -114,9 +117,12 @@ export default function SolveinServices() {
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-stretch">
         {services.map((service, index) => (
-          <div
-            key={index}
-            className="group relative flex min-h-[180px] flex-col overflow-hidden rounded-xl border border-[#ff6f00] bg-[#ff6f00] p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lg hover:border-gray-300"
+          <Link
+            key={service.slug || index}
+            href={`/services?service=${service.slug}`}
+            scroll
+            onClick={() => window.scrollTo(0, 0)}
+            className="group cursor-none relative flex min-h-[180px] flex-col overflow-hidden rounded-xl border border-[#ff6f00] bg-[#ff6f00] p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lg hover:border-gray-300"
           >
             <div className="pointer-events-none absolute -left-10 -top-10 h-24 w-24 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,111,0,0.25),rgba(255,111,0,0))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             <div className="flex items-center justify-between">
@@ -130,7 +136,7 @@ export default function SolveinServices() {
                 {service.title}
               </h2>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

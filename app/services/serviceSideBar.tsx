@@ -1,21 +1,21 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 type Service = {
   title: string;
+  slug: string;
 };
 
 type ServiceSideBarProps = {
   services: Service[];
-  activeTitle: string;
-  onSelect: (title: string) => void;
+  activeSlug: string;
 };
 
 export default function ServiceSideBar({
   services,
-  activeTitle,
-  onSelect,
+  activeSlug,
 }: ServiceSideBarProps) {
   const listVariants = {
     hidden: { opacity: 0 },
@@ -40,30 +40,31 @@ export default function ServiceSideBar({
       </h3>
 
       <motion.ul
-        className="font-zalando lg:flex lg:flex-col grid grid-cols-2 items-stretch gap-3"
+        className="font-zalando lg:flex lg:flex-col grid grid-cols-2 items-stretch gap-4"
         variants={listVariants}
         initial="hidden"
         animate="show"
       >
         {services.map((service) => {
-          const isActive = service.title === activeTitle;
+          const isActive = service.slug === activeSlug;
+          const href = `/services?service=${service.slug}`;
 
           return (
-            <motion.li key={service.title} variants={itemVariants}>
-              <motion.button
-                type="button"
-                onClick={() => onSelect(service.title)}
-                className={`h-full w-full text-left rounded-full border px-4 sm:px-6 py-3 text-[8px] sm:text-base uppercase transition-colors duration-300 cursor-pointer ${
+            <motion.li
+              key={service.title}
+              variants={itemVariants}
+              className="w-full"
+            >
+              <Link
+                href={href}
+                className={`block h-full w-full text-left rounded-full border px-4 sm:px-6 py-3 text-[8px] sm:text-base uppercase transition-colors duration-300 cursor-pointer ${
                   isActive
                     ? "bg-black text-[#ff6f00] border-black"
                     : "bg-transparent text-black border-black/45 hover:bg-black hover:text-[#ff6f00]"
                 }`}
-                whileHover={{ y: -1, scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-                transition={{ type: "spring", stiffness: 320, damping: 22 }}
               >
                 {service.title}
-              </motion.button>
+              </Link>
             </motion.li>
           );
         })}

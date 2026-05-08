@@ -2,13 +2,15 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useSearchParams } from "next/navigation";
 import HeroService from "./heroService";
 import ServiceSideBar from "./serviceSideBar";
 import { getServices, type ServiceItem } from "@/services/services";
 
 export default function ServicesClient() {
   const [services, setServices] = useState<ServiceItem[]>([]);
-  const [activeTitle, setActiveTitle] = useState("");
+  const searchParams = useSearchParams();
+  const activeSlug = searchParams.get("service") ?? "";
 
   useEffect(() => {
     let isMounted = true;
@@ -18,7 +20,6 @@ export default function ServicesClient() {
         const data = await getServices();
         if (!isMounted) return;
         setServices(data || []);
-        setActiveTitle(data?.[0]?.title ?? "");
       } catch (error) {
         console.error("Failed to load services", error);
       }
@@ -33,8 +34,8 @@ export default function ServicesClient() {
 
   const activeService = useMemo(
     () =>
-      services.find((service) => service.title === activeTitle) || services[0],
-    [activeTitle, services],
+      services.find((service) => service.slug === activeSlug) || services[0],
+    [activeSlug, services],
   );
 
   if (!services.length || !activeService) return null;
@@ -44,9 +45,11 @@ export default function ServicesClient() {
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-start">
         <div>
           <ServiceSideBar
-            services={services.map((service) => ({ title: service.title }))}
-            activeTitle={activeTitle}
-            onSelect={setActiveTitle}
+            services={services.map((service) => ({
+              title: service.title,
+              slug: service.slug,
+            }))}
+            activeSlug={activeService.slug}
           />
         </div>
 

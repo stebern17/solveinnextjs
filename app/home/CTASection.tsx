@@ -6,7 +6,7 @@ import { useThemeOnIntersect } from "@/app/hooks/useThemeOnIntersect";
 
 export function CTASection() {
   const sectionRef = useRef<HTMLElement>(null);
-  useThemeOnIntersect(sectionRef, { threshold: 0.5, sticky: true });
+  useThemeOnIntersect(sectionRef, { threshold: 0.3, sticky: true });
 
   return (
     <section

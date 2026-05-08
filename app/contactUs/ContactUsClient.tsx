@@ -104,7 +104,7 @@ export default function ContactUsClient() {
                   WhatsApp
                 </a>
                 <a
-                  href="mailto:marketing@solvein.com"
+                  href="#"
                   className="text-sm font-zalando hover:text-[#ff6f00] transition-colors duration-200"
                 >
                   hi.solvein@gmail.com

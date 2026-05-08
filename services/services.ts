@@ -21,10 +21,18 @@ type ServicesResponse = {
 
 export type ServiceItem = {
   title: string;
+  slug: string;
   description: string;
   image: string;
   features: string[];
 };
+
+const createServiceSlug = (title: string) =>
+  title
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 const resolveAssetUrl = (url?: string | null) => {
   if (!url) return "";
@@ -43,6 +51,7 @@ export async function getServices() {
   return items
     .map((item) => ({
       title: item.Name ?? "",
+      slug: createServiceSlug(item.Name ?? ""),
       description: item.Description ?? "",
       image: resolveAssetUrl(item.Image?.url),
       features: (item.Point ?? [])
