@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import { useRef } from "react";
-import { useThemeOnIntersect } from "@/app/hooks/useThemeOnIntersect";
 
 const EndlessRunner = dynamic(
   () => import("@/components/layouts/EndlessRunner"),
@@ -11,7 +10,6 @@ const EndlessRunner = dynamic(
 
 export default function GameSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  useThemeOnIntersect(sectionRef, { threshold: 0.5, sticky: false });
 
   return (
     <section
