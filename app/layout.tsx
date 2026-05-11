@@ -15,28 +15,12 @@ const DmSans = DM_Sans({
 
 const Serotiva = localFont({
   variable: "--font-zalando",
-  display: "swap",
+  display: "optional",
   src: [
     { path: "./font/Serotiva-Light.woff2", weight: "300", style: "normal" },
     {
       path: "./font/Serotiva-LightItalic.woff2",
       weight: "300",
-      style: "italic",
-    },
-    { path: "./font/Serotiva-Regular.woff2", weight: "400", style: "normal" },
-    {
-      path: "./font/Serotiva-Italic.woff2",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "./font/Serotiva-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "./font/Serotiva-MediumItalic.woff2",
-      weight: "500",
       style: "italic",
     },
     {
@@ -63,12 +47,6 @@ const Serotiva = localFont({
     {
       path: "./font/Serotiva-ExtraBoldItalic.woff2",
       weight: "800",
-      style: "italic",
-    },
-    { path: "./font/Serotiva-Black.woff2", weight: "900", style: "normal" },
-    {
-      path: "./font/Serotiva-BlackItalic.woff2",
-      weight: "900",
       style: "italic",
     },
   ],

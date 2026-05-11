@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroSection from "./home/heroSection";
-import HeroVideo from "./home/heroVideo";
 import SolveinSection from "./home/solveinSection";
 import Devider from "../components/ui/Devider";
 import BigBrandPartner, {
   BigBrandPartnerSkeleton,
 } from "./home/bigBrandPartner";
 import SolveinServices from "./home/solveinServices";
-import GameSection from "./home/gameSection";
+import GameHeroSection from "./home/gameHeroSection";
 import { CTASection } from "./home/CTASection";
 
 const PartnerSection = dynamic(() => import("./home/partnerSection"), {
@@ -72,10 +71,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <HeroVideo />
+      <GameHeroSection />
       <HeroSection />
-      <Devider />
-      <GameSection />
       <Devider />
       <SolveinSection />
       <LazyBigBrandPartner />
