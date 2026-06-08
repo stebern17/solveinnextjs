@@ -89,23 +89,23 @@ export default function ContactUsClient() {
           <div className="flex items-start gap-4">
             <HiPhone className="mt-0.5 text-[#ff6f00] shrink-0 text-xl" />
             <div>
-              <p className="text-xs uppercase tracking-widest font-semibold opacity-50 mb-1">
+              <p className="uppercase tracking-widest font-semibold opacity-50 mb-1">
                 Contact
               </p>
-              <div className="flex gap-6">
+              <div className="flex gap-4">
                 <a
                   href="https://wa.link/03l2gi"
                   aria-label="WhatsApp"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs font-zalando uppercase tracking-widest hover:text-[#ff6f00] transition-colors duration-200"
+                  className="flex items-center gap-1.5 text-sm font-zalando uppercase tracking-widest hover:text-[#ff6f00] transition-colors duration-200"
                 >
                   <FaWhatsapp className="text-base" />
                   WhatsApp
                 </a>
                 <a
                   href="#"
-                  className="text-sm font-zalando hover:text-[#ff6f00] transition-colors duration-200"
+                  className=" font-zalando hover:text-[#ff6f00] transition-colors duration-200"
                 >
                   hi@solvein.id
                 </a>
@@ -116,10 +116,10 @@ export default function ContactUsClient() {
           <div className="flex items-start gap-4">
             <HiLocationMarker className="mt-0.5 text-[#ff6f00] shrink-0 text-xl" />
             <div>
-              <p className="text-xs uppercase tracking-widest font-semibold opacity-50 mb-1">
+              <p className="uppercase tracking-widest font-semibold opacity-50 mb-1">
                 Office
               </p>
-              <p className="text-sm font-zalando">
+              <p className="font-zalando">
                 Sleman, Yogyakarta — Indonesia
               </p>
             </div>
@@ -130,7 +130,7 @@ export default function ContactUsClient() {
               <IoShareSocial />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-widest font-semibold opacity-50 mb-2">
+              <p className="uppercase tracking-widest font-semibold opacity-50 mb-2">
                 Follow Us
               </p>
               <div className="flex flex-wrap gap-4">
