@@ -48,7 +48,7 @@ export default async function Footer() {
               #SolveWhatMatters
             </h3>
             <p className="text-sm sm:text-lg text-justify font-extralight text-[#ff6f00]">
-              hi.solvein@gmail.com
+              hi@solvein.id
             </p>
           </div>
 

@@ -107,7 +107,7 @@ export default function ContactUsClient() {
                   href="#"
                   className="text-sm font-zalando hover:text-[#ff6f00] transition-colors duration-200"
                 >
-                  hi.solvein@gmail.com
+                  hi@solvein.id
                 </a>
               </div>
             </div>
