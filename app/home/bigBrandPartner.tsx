@@ -1,10 +1,12 @@
-import { getMainClient } from "@/services/mainClient";
+import { getMainClient } from "@/services/whatWeDo";
 import BigBrandPartnerCard from "./BigBrandPartnerCard";
 
 type MainClientItem = {
+  title?: string | null;
   mediaUrl: string;
   alt?: string | null;
   desc?: string | null;
+  html?: string | null;
   mime?: string | null;
 };
 
