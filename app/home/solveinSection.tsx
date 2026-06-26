@@ -1,4 +1,7 @@
-export default function SolveinSection() {
+import { getHeroSection } from "@/services/heroSection";
+
+export default async function SolveinSection() {
+  const content = await getHeroSection();
   return (
     <section className="min-h-[50vh] w-full mx-auto grid grid-cols-1 items-center lg:grid-cols-2 place-items-center gap-8 px-4 sm:px-8 relative container">
       <div className="flex items-center">
@@ -9,12 +12,18 @@ export default function SolveinSection() {
         />
       </div>
       <div>
-        <p className="text-base sm:text-lg lg:text-xl text-gray-600 transition-colors duration-500 text-justify">
-          Strategic. Production. Growth. We work alongside our clients to solve
-          what matters, turning strategy into measurable progress. From defining
-          the roadmap to executing with a target, let’s pave an innovative path
-          together as your thinking partner and achieve real improvements.
-        </p>
+        {content.about.html ? (
+          <div
+            className="text-base text-justify sm:text-lg text-gray-600 transition-colors duration-500 mb-2 lg:mb-8 [&_strong]:font-semibold"
+            dangerouslySetInnerHTML={{
+              __html: content.about.html,
+            }}
+          />
+        ) : content.about.text ? (
+          <p className="text-base text-justify sm:text-lg text-gray-600 transition-colors duration-500 mb-2 lg:mb-8">
+            {content.about.text}
+          </p>
+        ) : null}
       </div>
     </section>
   );
