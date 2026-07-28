@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, use } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SlArrowRight } from "react-icons/sl";
-import { submitForm } from "@/services/submitedForm";
+import { submitEmail } from "@/services/submitedEmail";
 
 export default function EmailForm() {
   const [email, setEmail] = useState("");
@@ -26,13 +26,8 @@ export default function EmailForm() {
     setMessage("");
 
     try {
-      await submitForm({
+      await submitEmail({
         email,
-        name: "",
-        whatsapp: "",
-        subject: "New Client Interested",
-        message:
-          "Client is interested in Solvein services. Please contact them as soon as possible.",
       });
       showMessage("Thank you! Our Team will contact you soon.");
       setEmail("");
