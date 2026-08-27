@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { DM_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -157,6 +158,22 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+
+        {/* Google Tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-JZ3N7SPMR5"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JZ3N7SPMR5');
+  `}
+        </Script>
       </body>
     </html>
   );
